@@ -2,9 +2,11 @@
     .title{
         font-size: x-large;
     }
+
     .profileContent{
 
     }
+
     .cards{
         margin: auto;
         width:100%;
@@ -12,12 +14,14 @@
             width: 100%;
         }
     }
+
     .progressBar{
         position:fixed;
         margin-bottom:30px;
         bottom:5px;
         width: 90%;
         max-height: 20px;
+    
         .bar{ 
             position:fixed;
             max-height: 20px;

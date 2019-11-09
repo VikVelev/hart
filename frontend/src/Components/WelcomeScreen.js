@@ -13,22 +13,147 @@ class WelcomeScreen extends Component {
             country: "",
             city: "",
             time: 1,
-            budget: 1,
-            submitted: false
+            budget: "1",
+            submitted: false,
+            // location, time, money
+            currentView: 0,
         };
-        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    stateMachine = ["location", "time", "money"]
+
+    getLocationView = () => {
+        return (
+            <Form.Group className="placeForm">
+                <Container className="title firstHeader" 
+                           textAlign='center'
+                           style={{width: "100%"}}
+                           >
+                    Where are you going today?
+                    <Divider />
+                </Container>
+                <Divider />
+                <Form.Dropdown
+                    className="countryForm"
+                    placeholder='Select Country'
+                    fluid
+                    search
+                    selection
+                    name="country"
+                    onChange={this.handleChange}
+                    options={this.countryOptions}
+                />
+                <Form.Dropdown
+                    className="cityForm"
+                    placeholder='Select City'
+                    fluid
+                    search
+                    selection
+                    name="city"
+                    onChange={this.handleChange}
+                    options={this.stateOptions}
+                />
+            </Form.Group>
+        );
+    }
+
+    getTimeView = () => {
+        return (
+            <Form.Group className="timeForm" >
+                <Container className="title" textAlign='center'>
+                    How much time do you want to spend?
+                <Divider />
+                </Container>
+                <Button.Group size={"big"}>
+                    <Form.Button type="button" 
+                                 onClick={() => { 
+                                    this.setState({
+                                         time: --this.state.time 
+                                    }) 
+                                 }}
+                                 icon='left chevron'
+                    />
+                    <Form.Button className="middleButton">
+                        {this.state.time}
+                    </Form.Button>
+                    <Form.Button type="button"
+                                 onClick={() => {
+                                    this.setState({
+                                        time: ++this.state.time 
+                                    }) 
+                                }} 
+                                icon='right chevron' 
+                    />
+                </Button.Group>
+            </Form.Group>
+        )
+    }
+
+    getMoneyView = () => {
+        return(
+            <Form.Group className="costForm">
+                <Container className="title" textAlign='center'>
+                    How much money do you want to spend?
+                <Divider />
+                </Container>
+
+                <Container className="checkboxContainer">
+                    <Form.Radio
+                        label="I don't mind spending a bit"
+                        value='0'
+                        name='budget'
+                        checked={this.state.budget === "0"}
+                        onChange={this.handleChange} />
+                    <Form.Radio
+                        label='Low Cost'
+                        value='1'
+                        name='budget'
+                        checked={this.state.budget === "1"}
+                        onChange={this.handleChange} />
+                    <Form.Radio
+                        label='University Student'
+                        value='2'
+                        name='budget'
+                        checked={this.state.budget === "2"}
+                        onChange={this.handleChange} />
+                </Container>
+            </Form.Group>
+        );
+    }
+
+    viewMap = {
+        "location": this.getLocationView.bind(this),
+        "time":     this.getTimeView.bind(this),
+        "money":    this.getMoneyView.bind(this),
     }
 
 
-    handleSubmit() {
-        /* 
-        Post request with chosen city and country
-                this.setState({ submitted: true });
+    changeForm = (e, { name, value }) => {
+
+        if(name === "next") {
+            this.setState({
+                currentView: (this.state.currentView + 1)
+            })
+        }
+
+        if(name === "prev") {
+            this.setState({
+                currentView: (this.state.currentView - 1)
+            })
+        }
+
+        console.log(this.state);
+    }
+
+    handleSubmit = () => {
+        /*
+            Post request with chosen city and country
+            this.setState({ submitted: true });
         */
         axios.post('/', {
             country: this.state.country,
-            city: this.state.city,
-            time: this.state.time
+            city:    this.state.city,
+            time:    this.state.time
         }).then(function (response) {
             console.log(response);
             this.setState({ submitted: true });
@@ -36,15 +161,14 @@ class WelcomeScreen extends Component {
             console.log(error);
         });
         this.setState({ submitted: true });
-
     }
-
 
     handleChange = (e, { name, value }) => {
         this.setState({ [name]: value })
     }
+
     render() {
-        const countryOptions = [
+        this.countryOptions = [
             { key: 'nl', value: 'nl', flag: 'nl', text: 'Netherlands' },
             { key: 'af', value: 'af', flag: 'af', text: 'Afghanistan', disabled: true },
             { key: 'al', value: 'al', flag: 'al', text: 'Albania', disabled: true },
@@ -69,132 +193,77 @@ class WelcomeScreen extends Component {
             { key: 'bz', value: 'bz', flag: 'bz', text: 'Belize', disabled: true },
             { key: 'bj', value: 'bj', flag: 'bj', text: 'Benin', disabled: true },
         ]
-        const stateOptions = [{
-            key: "Amsterdam",
-            text: "Amsterdam",
-            value: "Amsterdam",
-            disabled: false
-        },
-        {
-            key: "Delft",
-            text: "Delft",
-            value: "Delft",
-            disabled: true
-        },
-        {
-            key: "Rotterdam",
-            text: "Rotterdam",
-            value: "Rotterdam",
-            disabled: true
-        },
-        {
-            key: "The Hague",
-            text: "The Hague",
-            value: "The Hague",
-            disabled: true
-        },
-        {
-            key: "Eindhoven",
-            text: "Eindhoven",
-            value: "Eindhoven",
-            disabled: true
-        },
-        {
-            key: "Groningen",
-            text: "Groningen",
-            value: "Groningen",
-            disabled: true
-        },
 
+        this.stateOptions = [
+            {
+                key: "Amsterdam",
+                text: "Amsterdam",
+                value: "Amsterdam",
+                disabled: false
+            },
+            {
+                key: "Delft",
+                text: "Delft",
+                value: "Delft",
+                disabled: true
+            },
+            {
+                key: "Rotterdam",
+                text: "Rotterdam",
+                value: "Rotterdam",
+                disabled: true
+            },
+            {
+                key: "The Hague",
+                text: "The Hague",
+                value: "The Hague",
+                disabled: true
+            },
+            {
+                key: "Eindhoven",
+                text: "Eindhoven",
+                value: "Eindhoven",
+                disabled: true
+            },
+            {
+                key: "Groningen",
+                text: "Groningen",
+                value: "Groningen",
+                disabled: true
+            },
         ]
 
         return (
             <div className="WelcomeScreen" >
                 <Container className="WelcomeScreenContent">
-                    <Form onSubmit={this.handleSubmit} size={"big"}>
-                        <Form.Group className="placeForm">
-                            <Container className="title" textAlign='center'>
-                                Where are you going today?
-                                <Divider />
-
-                            </Container>
-                            <Divider />
-                            <Form.Dropdown
-                                className="countryForm"
-                                placeholder='Select Country'
-                                fluid
-                                search
-                                selection
-                                name="country"
-                                onChange={this.handleChange}
-                                options={countryOptions}
-                            />
-                            <Form.Dropdown
-                                className="cityForm"
-                                placeholder='Select City'
-                                fluid
-                                search
-                                selection
-                                name="city"
-                                onChange={this.handleChange}
-                                options={stateOptions}
-                            />
-                            <Container className="buttonContainer">
-                                <Button disabled onClick={this.changeForm} size={"large"} color={"blue"} content='Prev' icon='left arrow' labelPosition='left' />
-                                <Button onClick={this.changeForm} size={"large"} color={"blue"} content='Next' icon='right arrow' labelPosition='right' />
-
-                            </Container>
-                        </Form.Group>
-
-                        <Form.Group className="timeForm" >
-                            <Container className="title" textAlign='center'>
-                                How much time do you want to spend?
-                            <Divider />
-                            </Container>
-                            <Button.Group size={"big"}>
-                                <Form.Button type="button" onClick={() => { this.setState({ ...this.state, time: --this.state.time }) }} icon icon='left chevron' />
-                                <Form.Button className="middleButton">{this.state.time}</Form.Button>
-                                <Form.Button type="button" onClick={() => { this.setState({ ...this.state, time: ++this.state.time }) }} icon icon='right chevron' />
-                            </Button.Group>
-                            <Container className="buttonContainer">
-                                <Button onClick={this.changeForm} size={"large"} color={"blue"} content='Prev' icon='left arrow' labelPosition='left' />
-                                <Button onClick={this.changeForm} size={"large"} color={"blue"} content='Next' icon='right arrow' labelPosition='right' />
-                            </Container>
-                        </Form.Group>
-
-                        <Form.Group className="costForm">
-                            <Container className="title" textAlign='center'>
-                                How much money do you want to spend?
-                            <Divider />
-                            </Container>
-
-                            <Container className="checkboxContainer">
-                                <Form.Radio
-                                    label="I don't mind spending a bit"
-                                    value='0'
-                                    checked={this.state.budget === 0}
-                                    onChange={this.handleChange} />
-                                <Form.Radio
-                                    label='Low Cost'
-                                    value='1'
-                                    checked={this.state.budget === 1}
-                                    onChange={this.handleChange} />
-                                <Form.Radio
-                                    label='University Student'
-                                    value='2'
-                                    checked={this.state.budget === 2}
-                                    onChange={this.handleChange} />
-                            </Container>
-                            <Container className="buttonContainer">
-                                <Button onClick={this.changeForm} size={"large"} color={"blue"} content='Prev' icon='left arrow' labelPosition='left' />
-                                <Button disabled onClick={this.changeForm} size={"large"} color={"blue"} content='Next' icon='right arrow' labelPosition='right' />
-                            </Container>
-                            <Form.Button size={"large"} color={"blue"}>Submit</Form.Button>
-                        </Form.Group>
+                    <Form size={"big"}>
+                        {this.viewMap[this.stateMachine[this.state.currentView]]()}
+                        <Container className="buttonContainer">
+                            <Button disabled={this.state.currentView == 0}
+                                    onClick={this.changeForm} 
+                                    size="large"
+                                    color="blue"
+                                    name="prev"
+                                    content="Prev"
+                                    icon='left arrow'
+                                    labelPosition='left'
+                                />
+                            <Button disabled={this.state.currentView == this.stateMachine.length - 1}
+                                    onClick={this.changeForm} 
+                                    size="large" 
+                                    color="blue"
+                                    name="next" 
+                                    content='Next' 
+                                    icon='right arrow' 
+                                    labelPosition='right' 
+                                />
+                        </Container>
+                        { this.state.currentView == 2 ? 
+                            <Form.Button onClick={this.handleSubmit} size="large" color="blue">Submit</Form.Button>
+                            : null                            
+                        }
                     </Form>
                     {this.state.submitted ? <Redirect push to="/profile"></Redirect> : null}
-
-
                 </Container>
 
 
