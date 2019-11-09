@@ -8,7 +8,7 @@ let mode = "transit";
 let units = "metric";
 
 // let data = JSON.parse(contents).results;
-let content = fs.readFileSync('./coords.csv', 'utf8');
+let content = fs.readFileSync('./data/coords.csv', 'utf8');
 let coordsArray = content.split("|");
 
 let quarterArrays = [];
@@ -85,7 +85,7 @@ for (let i = 0; i < 5; i++) {
 }
 
 setTimeout(() => {
-    fs.writeFile('./matrix_advanced.json', JSON.stringify(matrix), (err) => {
+    fs.writeFile('./data/matrix_advanced.json', JSON.stringify(matrix), (err) => {
         if (err) throw err;
         console.log("Saved...");
     });
