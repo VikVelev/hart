@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react';
 import './sass/WelcomeScreen.scss'
-import { Container, Divider, Form, } from 'semantic-ui-react'
+import { Container, Divider, Form, Button } from 'semantic-ui-react'
 import axios from 'axios';
 import { Redirect } from "react-router-dom";
 
@@ -12,6 +12,8 @@ class WelcomeScreen extends Component {
         this.state = {
             country: "",
             city: "",
+            time: 1,
+            budget: 1,
             submitted: false
         };
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,16 +21,14 @@ class WelcomeScreen extends Component {
 
 
     handleSubmit() {
-
-
-
         /* 
         Post request with chosen city and country
                 this.setState({ submitted: true });
         */
         axios.post('/', {
             country: this.state.country,
-            city: this.state.city
+            city: this.state.city,
+            time: this.state.time
         }).then(function (response) {
             console.log(response);
             this.setState({ submitted: true });
@@ -38,6 +38,8 @@ class WelcomeScreen extends Component {
         this.setState({ submitted: true });
 
     }
+
+
     handleChange = (e, { name, value }) => {
         this.setState({ [name]: value })
     }
@@ -108,12 +110,15 @@ class WelcomeScreen extends Component {
 
         return (
             <div className="WelcomeScreen" >
-                <Container className="title" textAlign='center'>Where are you going today?</Container>
                 <Container className="WelcomeScreenContent">
-                    <Divider />
-
                     <Form onSubmit={this.handleSubmit} size={"big"}>
-                        <Form.Group >
+                        <Form.Group className="placeForm">
+                            <Container className="title" textAlign='center'>
+                                Where are you going today?
+                                <Divider />
+
+                            </Container>
+                            <Divider />
                             <Form.Dropdown
                                 className="countryForm"
                                 placeholder='Select Country'
@@ -134,9 +139,58 @@ class WelcomeScreen extends Component {
                                 onChange={this.handleChange}
                                 options={stateOptions}
                             />
+                            <Container className="buttonContainer">
+                                <Button disabled onClick={this.changeForm} size={"large"} color={"blue"} content='Prev' icon='left arrow' labelPosition='left' />
+                                <Button onClick={this.changeForm} size={"large"} color={"blue"} content='Next' icon='right arrow' labelPosition='right' />
+
+                            </Container>
                         </Form.Group>
 
-                        <Form.Button size={"large"} color={"blue"}>Next</Form.Button>
+                        <Form.Group className="timeForm" >
+                            <Container className="title" textAlign='center'>
+                                How much time do you want to spend?
+                            <Divider />
+                            </Container>
+                            <Button.Group size={"big"}>
+                                <Form.Button type="button" onClick={() => { this.setState({ ...this.state, time: --this.state.time }) }} icon icon='left chevron' />
+                                <Form.Button className="middleButton">{this.state.time}</Form.Button>
+                                <Form.Button type="button" onClick={() => { this.setState({ ...this.state, time: ++this.state.time }) }} icon icon='right chevron' />
+                            </Button.Group>
+                            <Container className="buttonContainer">
+                                <Button onClick={this.changeForm} size={"large"} color={"blue"} content='Prev' icon='left arrow' labelPosition='left' />
+                                <Button onClick={this.changeForm} size={"large"} color={"blue"} content='Next' icon='right arrow' labelPosition='right' />
+                            </Container>
+                        </Form.Group>
+
+                        <Form.Group className="costForm">
+                            <Container className="title" textAlign='center'>
+                                How much money do you want to spend?
+                            <Divider />
+                            </Container>
+
+                            <Container className="checkboxContainer">
+                                <Form.Radio
+                                    label="I don't mind spending a bit"
+                                    value='0'
+                                    checked={this.state.budget === 0}
+                                    onChange={this.handleChange} />
+                                <Form.Radio
+                                    label='Low Cost'
+                                    value='1'
+                                    checked={this.state.budget === 1}
+                                    onChange={this.handleChange} />
+                                <Form.Radio
+                                    label='University Student'
+                                    value='2'
+                                    checked={this.state.budget === 2}
+                                    onChange={this.handleChange} />
+                            </Container>
+                            <Container className="buttonContainer">
+                                <Button onClick={this.changeForm} size={"large"} color={"blue"} content='Prev' icon='left arrow' labelPosition='left' />
+                                <Button disabled onClick={this.changeForm} size={"large"} color={"blue"} content='Next' icon='right arrow' labelPosition='right' />
+                            </Container>
+                            <Form.Button size={"large"} color={"blue"}>Submit</Form.Button>
+                        </Form.Group>
                     </Form>
                     {this.state.submitted ? <Redirect push to="/profile"></Redirect> : null}
 
@@ -145,7 +199,7 @@ class WelcomeScreen extends Component {
 
 
 
-            </div>
+            </div >
         )
     }
 }

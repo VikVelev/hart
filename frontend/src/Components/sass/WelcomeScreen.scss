@@ -1,18 +1,58 @@
 .WelcomeScreen{
+    .placeForm{
+        display: none !important;
+        .countryForm, .cityForm{
+            height: 30px;
+            width:80%;
+            margin:auto !important;
+            margin-top:30px !important;
+        }
+    }
+    .timeForm{
+        display: none !important;
+        .buttons{
+            margin:auto;
+            .middleButton:focus,.middleButton:hover{
+                background-color: inherit;
+            }
+            button{
+                margin-top: 10px;
+                margin-left: 5px;
+                margin-right:5px;
+            }
+        }
+    }
+    .costForm{
+        button.field{
+            margin:auto;
 
-    .title{
-        padding-top:30px;
-        font-size: x-large;
+        }
+        .checkboxContainer{
+            label{
+                margin-top:20px;
+                font-size:16pt;
+            }
+            width: auto !important;
+            margin:auto !important;
+            text-align: left;
+        }
+        .field{
+            margin:auto !important;
+        }
     }
-    .countryForm, .cityForm{
-        height: 30px;
-        width:80%;
-        margin:auto !important;
-        margin-top:30px !important;
+    .buttonContainer{
+        display:flex;
+        width:80% !important;
+        margin: auto !important;
+        margin-bottom: 10px !important;
+        button{
+            margin-top: 50px !important ;
+            width: 100%;
+        }
     }
-    
-    button{
-        margin-top: 50px !important ;
-
-    }
+}
+.title{
+    padding-top:10px;
+    padding-bottom: 20px;
+    font-size: x-large;
 }
