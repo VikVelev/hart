@@ -3,6 +3,8 @@ import { Container, Divider, Card, Progress } from 'semantic-ui-react'
 import './sass/Profile.scss'
 import SiteCard from './Profile/SiteCard';
 import { observer } from 'mobx-react';
+import { Redirect } from "react-router-dom";
+import axios from 'axios';
 
 
 @observer
@@ -13,7 +15,9 @@ class Profile extends Component {
             sites: [],
             sitesOnDisplay: [],
             progress: 0, // progress bar state
-            display: 4 // max sites on page 
+            display: 4, // max sites on page 
+            submitted: false
+
         };
         this.onDecision = this.onDecision.bind(this);
         this.takeRandom = this.takeRandom.bind(this); 3
@@ -63,6 +67,27 @@ class Profile extends Component {
         let sitesOnDisplay = this.state.sitesOnDisplay;
 
         const replacement = this.newRandom(sites); // get replacement from existing state
+
+        // no places left to see
+
+        // 
+        if (sites.filter(x => x.picked === false).length <= 1 || replacement === undefined) {
+            // 
+            this.props.store.addSite(key, accepted) // updates store      
+            let choices = this.props.store.choices
+            axios.post("",{
+                choicesArray: choices
+            }) // write your proper post request here
+
+            
+            this.setState({...this.state, progress:100}); // fancy shit
+
+            setTimeout(() => {
+                this.setState({ ...this.state, submitted: true })
+            }, 2000);
+            return;
+        }
+
         sites.forEach((site, index) => {
             if (site.key == replacement.key) {
                 site.picked = true;
