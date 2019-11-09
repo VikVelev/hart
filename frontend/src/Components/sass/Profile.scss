@@ -13,8 +13,15 @@
         }
     }
     .progressBar{
-        margin:30px;
+        position:fixed;
+        margin-bottom:30px;
+        bottom:5px;
+        width: 90%;
         max-height: 20px;
-        .bar{ max-height: 20px;}
+        .bar{ 
+            position:fixed;
+            max-height: 20px;
+            position:fixed;
+        }
     }
 }

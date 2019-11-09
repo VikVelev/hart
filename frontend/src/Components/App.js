@@ -2,7 +2,7 @@ import React from 'react';
 import './sass/App.scss'
 import Store from '../Store';
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-import WelcomingScreen from './WelcomingScreen';
+import WelcomeScreen from './WelcomeScreen';
 import Profile from './Profile';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
             <div className = "App">
                 <Switch>
                     <Route path="/welcome">
-                        <WelcomingScreen />
+                        <WelcomeScreen />
                     </Route>
                     <Route path="/profile">
                         <Profile store = {Store} />

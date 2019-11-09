@@ -16,7 +16,6 @@ class Profile extends Component {
             display: 4 // max sites on page 
         };
         this.onDecision = this.onDecision.bind(this);
-        this.incrementProgressBar = this.incrementProgressBar.bind(this);
         this.takeRandom = this.takeRandom.bind(this);3
     }
     componentDidMount() {
@@ -68,14 +67,10 @@ class Profile extends Component {
         })
         sitesOnDisplay = sitesOnDisplay.map((value,index)=> value.key === key ? replacement : value) //remove accepted key 
 
-        this.incrementProgressBar(); 
         this.props.store.addSite(key, accepted) // updates store      
-        this.setState({...this.state, sites:sites, sitesOnDisplay:sitesOnDisplay }) // push state changes
-
-    }
-    incrementProgressBar() {
-        console.log("asd");
-        this.setState({ ...this.state, progress: this.state.progress >= 100 ? 100 : this.state.progress + 20 })
+        this.setState({...this.state, sites:sites, 
+            sitesOnDisplay:sitesOnDisplay, 
+            progress: this.state.progress >= 100 ? 100 : this.state.progress + 20  }) // push state changes
 
     }
 

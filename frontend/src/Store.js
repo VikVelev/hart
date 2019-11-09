@@ -8,9 +8,13 @@ class Store {
     }
     */
     @observable choices = [];
+    @observable location = "";
 
     @action addSite = (key, accepted)  =>{
         this.choices.push({key:key, accepted:accepted});
+    }
+    @action changeLocation = (loc)  =>{
+        this.location = loc
     }
 }
 let store = new Store();
