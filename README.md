@@ -1,2 +1,0 @@
-# hart
-Nicolai Hartmann

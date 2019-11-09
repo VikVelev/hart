@@ -1,0 +1,997 @@
+{
+   "html_attributions": [],
+   "next_page_token": "CrQCKAEAAEUCe9jbE96pdiG4DokNY9gCPcqx2hSjl69sirRkx3uw2KSZ4pirdgzyDFGtV3MwsQZ8K91eihUgDTDoO90FQQkcgLJGGIh5XGaoD0AqAkTQz7u2xqM5YVoww6bQMazWYbRRmT0e4xnMNpqzm9wc4FvrwVn4-ILcq8tSJtr2ie-GvpLpc_doVRbK24xsyQFkxwPxHFCrHmHqrqa6-_fAPyycjDtX8pxjvwZ6TAbqNfp4uUZjcKO9O-Cl0fID9YZlo7f6_t2rqsgeVWxPvr7aa4fOGiQSV4aXgiUqHxhSes9ywlcAeMcq1ZllUJ5i9GGqWD335CxSvjvT4C0fIRiMBkkZ-E81qUD3KhkeLJObj6-V1Zpgp99-tYF2n7iT9wqj7KzaEEUwPmdxFH32C96eLCYSENczI0HGpuysI6Up27p8AK0aFAooyAEIbN7taTVMm_F7mzz91FjZ",
+   "results": [
+      {
+         "geometry": {
+            "location": {
+               "lat": 52.37548359999999,
+               "lng": 4.892995
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 52.3768822802915,
+                  "lng": 4.894229830291502
+               },
+               "southwest": {
+                  "lat": 52.3741843197085,
+                  "lng": 4.891531869708498
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id": "e045c929661411a91b4b64223b65f38d118f6e52",
+         "name": "INK Hotel Amsterdam - MGallery",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 2413,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/103936735529935401112/photos\">INK Hotel Amsterdam - MGallery</a>"
+               ],
+               "photo_reference": "CmRaAAAAnAxUiOpFDHFAWlc2x9It25eEIusklge3-fJTdSDz8CcnMDz16MzFtHAbFd1EnH6NFaWWTDMpq5TXXrhsHh3NYds3daddubxI1J8ujWmWpQKJV070g5OGIMxLR-9TzRDgEhDgarmJ_X08U5JvOfo6XE4-GhRVbv6X16iLu2U9k9ruSlRVWNvaWA",
+               "width": 3619
+            }
+         ],
+         "place_id": "ChIJn37GsscJxkcRhWExbZMC1KA",
+         "plus_code": {
+            "compound_code": "9VGV+55 Amsterdam, Netherlands",
+            "global_code": "9F469VGV+55"
+         },
+         "rating": 4.6,
+         "reference": "ChIJn37GsscJxkcRhWExbZMC1KA",
+         "scope": "GOOGLE",
+         "types": [
+            "lodging",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 1263,
+         "vicinity": "Nieuwezijds Voorburgwal 67, Amsterdam"
+      },
+      {
+         "geometry": {
+            "location": {
+               "lat": 52.3712928,
+               "lng": 4.8901489
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 52.3726357302915,
+                  "lng": 4.891524180291501
+               },
+               "southwest": {
+                  "lat": 52.3699377697085,
+                  "lng": 4.888826219708498
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id": "9a153a6064e4409cc3c66cb40ae5ae986ec70c5a",
+         "name": "Nova Hotel & Apartments",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 2000,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/111925492707784847514/photos\">Nova Hotel</a>"
+               ],
+               "photo_reference": "CmRaAAAA2l2bbrAZXrE83bLm7gH9S3IMUEfcbij4iblgycDD_ht8Fha3kyyAyDjWgP7BiRym-b8LOJEur3wGuJalokK1Xd_nWFgwyjuQKXCrVhRv3QzNmPiU7vlvdicXXaZCmCJBEhBaPTleLlNq60_Qc4g3afLxGhRRwbTIX1P9f7wknWfmTG3b4hEzDw",
+               "width": 3000
+            }
+         ],
+         "place_id": "ChIJh5PbRsEJxkcRtfcmPngIu_U",
+         "plus_code": {
+            "compound_code": "9VCR+G3 Amsterdam, Netherlands",
+            "global_code": "9F469VCR+G3"
+         },
+         "rating": 4,
+         "reference": "ChIJh5PbRsEJxkcRtfcmPngIu_U",
+         "scope": "GOOGLE",
+         "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 531,
+         "vicinity": "Nieuwezijds Voorburgwal 276, Amsterdam"
+      },
+      {
+         "geometry": {
+            "location": {
+               "lat": 52.37270669999999,
+               "lng": 4.8943658
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 52.37407178029149,
+                  "lng": 4.895639130291502
+               },
+               "southwest": {
+                  "lat": 52.3713738197085,
+                  "lng": 4.892941169708497
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id": "958811f303b3e79d74c9e8ce996dddc54477d37b",
+         "name": "Hotel NH Collection Amsterdam Grand Hotel Krasnapolsky",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 1600,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/102383856043553457774/photos\">Hotel NH Collection Amsterdam Grand Hotel Krasnapolsky</a>"
+               ],
+               "photo_reference": "CmRaAAAAYkQc0gN7jQZn55NZb6KnD2I6_0fzpPIQ_VmOT_YTA40kRGvSsX__O6PkavWAq0kFrlXsuoQ1IErX7emyICnc8a_Kaqla1pRGCfbqx52z05JAbCU15Q-soQGjjNJT2WrbEhBv8R-fcfvt6RElCktyXnCKGhSh6WUBjaHzl-J2EnLzQlPkMKuojQ",
+               "width": 2560
+            }
+         ],
+         "place_id": "ChIJ_5j_RccJxkcRtPh7den4sB8",
+         "plus_code": {
+            "compound_code": "9VFV+3P Amsterdam, Netherlands",
+            "global_code": "9F469VFV+3P"
+         },
+         "rating": 4.5,
+         "reference": "ChIJ_5j_RccJxkcRtPh7den4sB8",
+         "scope": "GOOGLE",
+         "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 3190,
+         "vicinity": "Dam 9, Amsterdam"
+      },
+      {
+         "geometry": {
+            "location": {
+               "lat": 52.37604559999999,
+               "lng": 4.894391699999999
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 52.37754123029149,
+                  "lng": 4.895498430291503
+               },
+               "southwest": {
+                  "lat": 52.37484326970849,
+                  "lng": 4.892800469708498
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id": "d03f9aeeeea9e22aa6188dc53e73318274090152",
+         "name": "Inntel Hotels Amsterdam Centre",
+         "photos": [
+            {
+               "height": 1597,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/107414393580109569064/photos\">Inntel Hotels Amsterdam Centre</a>"
+               ],
+               "photo_reference": "CmRaAAAA-MJGg8TJieICwGTLat5qcW_BSp53_QdgWijFJp6YwjMRkxYKQX2Z9LKNYqVhiv622CB94mNonhvcMPssnQINoZlNiSx-K8YG5oBt4egKyd6OKURnvjnp08hSxCYa3AujEhDdyqlYu-pLViOP38dCtS7TGhSreW_yfJKNAH5kEenKPx_at4BIiQ",
+               "width": 2000
+            }
+         ],
+         "place_id": "ChIJv8p3wMcJxkcRPt955tgRVEU",
+         "plus_code": {
+            "compound_code": "9VGV+CQ Amsterdam, Netherlands",
+            "global_code": "9F469VGV+CQ"
+         },
+         "rating": 4.1,
+         "reference": "ChIJv8p3wMcJxkcRPt955tgRVEU",
+         "scope": "GOOGLE",
+         "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 1559,
+         "vicinity": "Nieuwezijds Kolk 19, Amsterdam"
+      },
+      {
+         "geometry": {
+            "location": {
+               "lat": 52.37208799999999,
+               "lng": 4.894867999999999
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 52.3734770302915,
+                  "lng": 4.896251980291502
+               },
+               "southwest": {
+                  "lat": 52.3707790697085,
+                  "lng": 4.893554019708497
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id": "40f9861ae0aece87f6dbd9f7b533062f3f1bbc06",
+         "name": "Hotel De Gerstekorrel",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 2362,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/104799336952245602861/photos\">Hotel De Gerstekorrel</a>"
+               ],
+               "photo_reference": "CmRaAAAAZCe3cn8EQ4376aj8sqAzxMNokLVcUhRK4ik_uNaOJ_lHkICwD56u6-8tqANyqK5pdP2VEJGh9lKKuux0TTIfICizmQzdNWwnQuU30-5YeGWKhRI_witHA1aS4lLygimEEhA3gK9f9iBfIA-gpIno2SIgGhTVP2Yx8ILQJrWhgvlmoSrj7skF_Q",
+               "width": 3543
+            }
+         ],
+         "place_id": "ChIJaX3gUscJxkcRWn80_DiR2ZU",
+         "plus_code": {
+            "compound_code": "9VCV+RW Amsterdam, Netherlands",
+            "global_code": "9F469VCV+RW"
+         },
+         "rating": 3.6,
+         "reference": "ChIJaX3gUscJxkcRWn80_DiR2ZU",
+         "scope": "GOOGLE",
+         "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 268,
+         "vicinity": "Damstraat 22, Amsterdam"
+      },
+      {
+         "geometry": {
+            "location": {
+               "lat": 52.3697554,
+               "lng": 4.888781499999999
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 52.3711160302915,
+                  "lng": 4.889945180291502
+               },
+               "southwest": {
+                  "lat": 52.3684180697085,
+                  "lng": 4.887247219708497
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id": "45a3c7d2ffc09e08f073ba9e4bbdaab7a8d04363",
+         "name": "NH City Center Amsterdam",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 576,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/109827536871525309621/photos\">Hotel NH City Centre Amsterdam</a>"
+               ],
+               "photo_reference": "CmRaAAAAETIRVa4Q6kHNp2fAASHK9bjFV7JliZJFipxoQI186AJyxKuzWAQPi8dNOaV_NDHTR5upKPaH1buSOXDGZeqIYE3CPyrVwzN4yk2X9IcYx0WbCRBLKBydGFh44Q814KtMEhBdBKpRGqDkwcPreUuTtFLMGhQDtKxJohlSL0yIExvpd4YzcBQOVg",
+               "width": 768
+            }
+         ],
+         "place_id": "ChIJR9g2f8EJxkcRqGKXxXdSric",
+         "plus_code": {
+            "compound_code": "9V9Q+WG Amsterdam, Netherlands",
+            "global_code": "9F469V9Q+WG"
+         },
+         "rating": 4.199999999999999,
+         "reference": "ChIJR9g2f8EJxkcRqGKXxXdSric",
+         "scope": "GOOGLE",
+         "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 1479,
+         "vicinity": "Spuistraat 288-292, Amsterdam"
+      },
+      {
+         "geometry": {
+            "location": {
+               "lat": 52.3710929,
+               "lng": 4.8954105
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 52.3725098302915,
+                  "lng": 4.896740280291502
+               },
+               "southwest": {
+                  "lat": 52.3698118697085,
+                  "lng": 4.894042319708498
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id": "fe846fd19bff1300304ac3f6e34a69458b2dca5e",
+         "name": "Hotel Sofitel Legend The Grand Amsterdam",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 1656,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/110602774176559966824/photos\">Hotel Sofitel Legend The Grand Amsterdam</a>"
+               ],
+               "photo_reference": "CmRaAAAAPXquMkputYclWuqBbfXe_t-0MGqo_K857WsvlDot7_GW5lQe9pHOPthaFRLgebI6BEeIr78il6nYKVRftSwrLkZzgC6M8UfNcTCgUMc9989xhMP5N17s38-XUUQpXcqSEhACWftUYvdxVQi4uWbhZpTJGhSEmZR905he3Ns62D4UBMYD18SpOA",
+               "width": 2500
+            }
+         ],
+         "place_id": "ChIJiUVfWL8JxkcRMZQ0SV_FQ6Y",
+         "plus_code": {
+            "compound_code": "9VCW+C5 Amsterdam, Netherlands",
+            "global_code": "9F469VCW+C5"
+         },
+         "rating": 4.699999999999999,
+         "reference": "ChIJiUVfWL8JxkcRMZQ0SV_FQ6Y",
+         "scope": "GOOGLE",
+         "types": [
+            "lodging",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 1293,
+         "vicinity": "Oudezijds Voorburgwal 197, Amsterdam"
+      },
+      {
+         "geometry": {
+            "location": {
+               "lat": 52.37673270000001,
+               "lng": 4.896377600000001
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 52.3782180802915,
+                  "lng": 4.897353530291502
+               },
+               "southwest": {
+                  "lat": 52.3755201197085,
+                  "lng": 4.894655569708497
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id": "425ce5fcca68f63669205d8beaab05993b0d1936",
+         "name": "The Flying Pig Downtown Hostel",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 4000,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/114387017799438401577/photos\">The Flying Pig Downtown Hostel</a>"
+               ],
+               "photo_reference": "CmRaAAAAXlCEbjq8a_EkMnZaDx-qPr935PuUt4X6Mx83d8NrwWla0a1Vsa3Tr7DNkpQs66HRTze_rK4jzDe732gTIikXXG3c-wc_QXS0_5wXohU_5dZOnpU3_khHMcftMr838QbAEhD9K89e0z8FhYg__ZbF-SWaGhRPbVBT_dLJe3S0SuvHw-xETV6mTQ",
+               "width": 6000
+            }
+         ],
+         "place_id": "ChIJk17zB7gJxkcR8E1SEpIcE_4",
+         "plus_code": {
+            "compound_code": "9VGW+MH Amsterdam, Netherlands",
+            "global_code": "9F469VGW+MH"
+         },
+         "rating": 4.399999999999999,
+         "reference": "ChIJk17zB7gJxkcR8E1SEpIcE_4",
+         "scope": "GOOGLE",
+         "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 1356,
+         "vicinity": "Nieuwendijk 100, Amsterdam"
+      },
+      {
+         "geometry": {
+            "location": {
+               "lat": 52.3723106,
+               "lng": 4.897487600000001
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 52.3736441802915,
+                  "lng": 4.898888480291503
+               },
+               "southwest": {
+                  "lat": 52.3709462197085,
+                  "lng": 4.896190519708498
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id": "4715bf327f82db52189e49e33f9744a144cc1091",
+         "name": "Heart of Amsterdam",
+         "photos": [
+            {
+               "height": 3480,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/111510875388769235489/photos\">alex hardy</a>"
+               ],
+               "photo_reference": "CmRaAAAA8x5PDpWG-i8JVlmqKD2nI2WGerMCzspPZXFbCo_4zl15VCf7tpMWblfwpt2TCHlOydWPUHA3nwSG6JBinUjG_zpA0sZMaUlwlcxXvd2pwGbaes3W-914_C0dMR8D01-dEhBCojz1riu7F83dns-WN60yGhR5Ie8iNUrUTIvirt6FVZl9oKNSvg",
+               "width": 4640
+            }
+         ],
+         "place_id": "ChIJWVg9ybgJxkcR9F68UBJNOlo",
+         "plus_code": {
+            "compound_code": "9VCW+WX Amsterdam, Netherlands",
+            "global_code": "9F469VCW+WX"
+         },
+         "rating": 3.6,
+         "reference": "ChIJWVg9ybgJxkcR9F68UBJNOlo",
+         "scope": "GOOGLE",
+         "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 632,
+         "vicinity": "Oudezijds Achterburgwal 120, Amsterdam"
+      },
+      {
+         "geometry": {
+            "location": {
+               "lat": 52.37565060000001,
+               "lng": 4.898373600000001
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 52.3769966302915,
+                  "lng": 4.900127180291502
+               },
+               "southwest": {
+                  "lat": 52.37429866970851,
+                  "lng": 4.897429219708497
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id": "95091e8c520bab6c984d04420cc5e3166f3b3e09",
+         "name": "Hotel CC Amsterdam",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 683,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/110155555846700501840/photos\">Hotel CC Amsterdam</a>"
+               ],
+               "photo_reference": "CmRaAAAA2LWHar1-9OqpWcRjP381rJvyYqiwHJ8XaYsgzIW1ZJqD6G-igdlEThKeEYffqq2_BrieL4Lt3oHLlCtLKUbHEUuWUtbNVX8p4YA5J6vQPG-Ye6lghiesZycylBEGaBHREhBjHbh0qK6HuK2A8nC--NxcGhQHSya8IMyThBEtySEY38xAuku0ug",
+               "width": 1024
+            }
+         ],
+         "place_id": "ChIJs01eRrgJxkcR5jnrl3llcqM",
+         "plus_code": {
+            "compound_code": "9VGX+78 Amsterdam, Netherlands",
+            "global_code": "9F469VGX+78"
+         },
+         "rating": 3.8,
+         "reference": "ChIJs01eRrgJxkcR5jnrl3llcqM",
+         "scope": "GOOGLE",
+         "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 674,
+         "vicinity": "Warmoesstraat 42, Amsterdam"
+      },
+      {
+         "geometry": {
+            "location": {
+               "lat": 52.37028950000001,
+               "lng": 4.8966884
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 52.37153118029151,
+                  "lng": 4.897976780291502
+               },
+               "southwest": {
+                  "lat": 52.36883321970851,
+                  "lng": 4.895278819708498
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id": "0228cfdacf1b03b63f3952f93e6da5dbf2a1d72a",
+         "name": "Radisson Blu Hotel, Amsterdam City Center",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 576,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/115538445455092879812/photos\">Radisson Blu Hotel, Amsterdam City Center</a>"
+               ],
+               "photo_reference": "CmRaAAAAGF8WOG24-usIcI5aHti1uz7ul4S4MyQCN8957hF766A-y0O_aPvFmAfuRWAyrwLC7dhbzPLrfdWtcJ0FnqRQKvT3R5pIWbAvkWiKqaPJDAQIsqskI2ItyT9PMz2eaMO8EhDOXIN8AQjpYT-jnNn61ntfGhSAPo-v20VcG2nwoSeOoBWMaZQj_g",
+               "width": 1024
+            }
+         ],
+         "place_id": "ChIJ1SrebL8JxkcRjzT1Q0KtSnY",
+         "plus_code": {
+            "compound_code": "9VCW+4M Amsterdam, Netherlands",
+            "global_code": "9F469VCW+4M"
+         },
+         "rating": 4.399999999999999,
+         "reference": "ChIJ1SrebL8JxkcRjzT1Q0KtSnY",
+         "scope": "GOOGLE",
+         "types": [
+            "lodging",
+            "bar",
+            "restaurant",
+            "food",
+            "gym",
+            "health",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 1388,
+         "vicinity": "Rusland 17, Amsterdam"
+      },
+      {
+         "geometry": {
+            "location": {
+               "lat": 52.3770969,
+               "lng": 4.8977789
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 52.37859548029149,
+                  "lng": 4.899412980291503
+               },
+               "southwest": {
+                  "lat": 52.3758975197085,
+                  "lng": 4.896715019708498
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id": "2dd263455fd44e4bbf80d35b329bccd30e6c2f16",
+         "name": "Park Plaza Victoria Amsterdam",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 4480,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/102982234840537020640/photos\">Park Plaza Victoria Amsterdam</a>"
+               ],
+               "photo_reference": "CmRaAAAAETqKS2H30fRk50fSILZB5BMPC9zfqUN8ENDFk2AF3htMYsG1ArxZclIUukyOK_2GL7DmVBouC95U66wc7xjJwo7Y_xJxZizsRchdrTSVy7oS0LQT3TNbjNVbpAzxW8sCEhCTklE2hjzby7Bxssmvb8uoGhTxpmdXPLmlr3y3r0gv8yYNVcmGkA",
+               "width": 6720
+            }
+         ],
+         "place_id": "ChIJld6hH7gJxkcREBPTrkmeYe0",
+         "plus_code": {
+            "compound_code": "9VGX+R4 Amsterdam, Netherlands",
+            "global_code": "9F469VGX+R4"
+         },
+         "rating": 4.3,
+         "reference": "ChIJld6hH7gJxkcREBPTrkmeYe0",
+         "scope": "GOOGLE",
+         "types": [
+            "spa",
+            "lodging",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 2237,
+         "vicinity": "Damrak 1-5, Amsterdam"
+      },
+      {
+         "geometry": {
+            "location": {
+               "lat": 52.3764175,
+               "lng": 4.900220099999999
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 52.37782653029149,
+                  "lng": 4.901509330291502
+               },
+               "southwest": {
+                  "lat": 52.37512856970849,
+                  "lng": 4.898811369708498
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id": "e482dfe61a11dc230e9337ecfe938f2e8523bb45",
+         "name": "Hotel NH Collection Amsterdam Barbizon Palace",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 1891,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/111413190589917592042/photos\">Hotel NH Collection Amsterdam Barbizon Palace</a>"
+               ],
+               "photo_reference": "CmRaAAAAgIfL3jXUY9SacfoZKWgAzTqo-ArVrXLKqXDKioLI8OcJ1kGDGZHSIN7tdO7K0vbdcQncMDDHmYOdOWSgF2RmX34Fsva0smyO0hwEUV-6J4nSPRBC6D4ZVYYQZEjLal8WEhAW_hlqd19zFvfWEF2JuMkJGhR8eY4Oh08L-z1_rGs6T9ODHV-pFg",
+               "width": 2836
+            }
+         ],
+         "place_id": "ChIJQ_tKzrkJxkcRa2Yg-YSRmA4",
+         "plus_code": {
+            "compound_code": "9WG2+H3 Amsterdam, Netherlands",
+            "global_code": "9F469WG2+H3"
+         },
+         "rating": 4.399999999999999,
+         "reference": "ChIJQ_tKzrkJxkcRa2Yg-YSRmA4",
+         "scope": "GOOGLE",
+         "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 1470,
+         "vicinity": "Prins Hendrikkade 59-72, Amsterdam"
+      },
+      {
+         "geometry": {
+            "location": {
+               "lat": 52.36764700000001,
+               "lng": 4.894313999999999
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 52.3690308802915,
+                  "lng": 4.895632180291503
+               },
+               "southwest": {
+                  "lat": 52.3663329197085,
+                  "lng": 4.892934219708498
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id": "0ea89c2cb7c1ec028b2b0b1655f12219b2c67d7b",
+         "name": "De L'Europe Amsterdam",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 1365,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/118068030655929964777/photos\">De L&#39;Europe Amsterdam</a>"
+               ],
+               "photo_reference": "CmRZAAAAHSXK2__WXGLhPGdAXf3TGxaDANCSq8Wns2IiCJwAtodZMDhDuV-LDyOcif7n6s-i_7yXZMB-T9xZvytvILo_c1QN-DkQ3UYdhX4NtABIMgrR8VreuLQJHaxYwLZPcqcaEhDzu2isLzRaNuRibrEyDp3PGhS70edhPsZJTo7EoYy4qq-qa31-tg",
+               "width": 2048
+            }
+         ],
+         "place_id": "ChIJw0-tDsAJxkcRaW2mhNKHU0Y",
+         "plus_code": {
+            "compound_code": "9V9V+3P Amsterdam, Netherlands",
+            "global_code": "9F469V9V+3P"
+         },
+         "rating": 4.6,
+         "reference": "ChIJw0-tDsAJxkcRaW2mhNKHU0Y",
+         "scope": "GOOGLE",
+         "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 1156,
+         "vicinity": "Nieuwe Doelenstraat 2-14, Amsterdam"
+      },
+      {
+         "geometry": {
+            "location": {
+               "lat": 52.3795272,
+               "lng": 4.897111399999999
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 52.38081013029149,
+                  "lng": 4.898435130291501
+               },
+               "southwest": {
+                  "lat": 52.37811216970849,
+                  "lng": 4.895737169708497
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id": "6607aeabb6ffee60d024801f831595b91a791091",
+         "name": "Hotel ibis Amsterdam Centre",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 3466,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/109859241816962471821/photos\">Hotel ibis Amsterdam Centre</a>"
+               ],
+               "photo_reference": "CmRaAAAAV0GyCAFKQZPp4bwJnTA28dZAgU9UO-PKEEHNaT9byTDVhRBZ2Q2buRFSgltI_y-UbSCDt8yVdSfmpBVVO6PNBnSjJmsH0ZS6BVw0xr2Kh164uRcs5UWVV6AuyKtgXaPzEhCN2_g2um-LKsR6XEEpTHiyGhRwyqF-37_zaD2LEcLO8PC7EGl6aw",
+               "width": 3456
+            }
+         ],
+         "place_id": "ChIJk_GE1rcJxkcR9Np8w4KYTro",
+         "plus_code": {
+            "compound_code": "9VHW+RR Amsterdam, Netherlands",
+            "global_code": "9F469VHW+RR"
+         },
+         "rating": 3.9,
+         "reference": "ChIJk_GE1rcJxkcR9Np8w4KYTro",
+         "scope": "GOOGLE",
+         "types": [
+            "lodging",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 3176,
+         "vicinity": "Stationsplein 49, Amsterdam"
+      },
+      {
+         "geometry": {
+            "location": {
+               "lat": 52.3663727,
+               "lng": 4.8930505
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 52.3677172802915,
+                  "lng": 4.894427880291502
+               },
+               "southwest": {
+                  "lat": 52.3650193197085,
+                  "lng": 4.891729919708498
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id": "4e7715080942f1cc7c0605d28dbbc394d57470f4",
+         "name": "Hotel NH Collection Amsterdam Flower Market",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 1000,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/117405595879822419470/photos\">Hotel NH Collection Amsterdam Flower Market</a>"
+               ],
+               "photo_reference": "CmRaAAAAe9yrWdUJx6nZQYlHiT0Bsr2X4t8GCtawIeB8Jl7guwgyKmNEQao_sdYPv1YpxRmrsuTP_yt-4gGK9HDroNzeHp6HxorWzxjvAXl_eoumzLFIzVyrGV6JBLLWTnbYtp6xEhDO5qNy9WFzSAahdCNYSRsRGhTgjbUaWEyznLUe_FJARN5YZ-nZxA",
+               "width": 1500
+            }
+         ],
+         "place_id": "ChIJ19w5ouoJxkcRmojLN7zm9oU",
+         "plus_code": {
+            "compound_code": "9V8V+G6 Amsterdam, Netherlands",
+            "global_code": "9F469V8V+G6"
+         },
+         "rating": 3.7,
+         "reference": "ChIJ19w5ouoJxkcRmojLN7zm9oU",
+         "scope": "GOOGLE",
+         "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 1184,
+         "vicinity": "Vijzelstraat 4, Amsterdam"
+      },
+      {
+         "geometry": {
+            "location": {
+               "lat": 52.37283499999999,
+               "lng": 4.883325999999999
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 52.3742127302915,
+                  "lng": 4.885380499999998
+               },
+               "southwest": {
+                  "lat": 52.3715147697085,
+                  "lng": 4.882462100000001
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id": "3063f7efb6c1af171227226b86ede8439c78e643",
+         "name": "Pulitzer Amsterdam",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 842,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/115031883716897075255/photos\">Pulitzer Amsterdam</a>"
+               ],
+               "photo_reference": "CmRaAAAAw3ENyk6a4AOgkRW8MBe-AQWVTR5gYNGZKz-4miYwinOrkAitZVZMMHGdrOtqjPEZXOVRlp6wJBSu9pFdWJYYgphyjFPHFxJJ2Ntage9Aob5iEfU0XLdBU4SSWL_1pkSwEhDgSA2Wty_FqYF8Csysl2NPGhROBrg2a-kgSbaYIJZZ3HFdaZk-DQ",
+               "width": 1500
+            }
+         ],
+         "place_id": "ChIJDY8OYsMJxkcRNqaKHHoTNFQ",
+         "plus_code": {
+            "compound_code": "9VFM+48 Amsterdam, Netherlands",
+            "global_code": "9F469VFM+48"
+         },
+         "rating": 4.6,
+         "reference": "ChIJDY8OYsMJxkcRNqaKHHoTNFQ",
+         "scope": "GOOGLE",
+         "types": [
+            "lodging",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 1230,
+         "vicinity": "Prinsengracht 323, Amsterdam"
+      },
+      {
+         "geometry": {
+            "location": {
+               "lat": 52.37657340000001,
+               "lng": 4.893757000000001
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 52.3779030802915,
+                  "lng": 4.895167730291503
+               },
+               "southwest": {
+                  "lat": 52.3752051197085,
+                  "lng": 4.892469769708498
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id": "8ab3dbda79269fbbad11af0f60728b8c066a73b9",
+         "name": "WestCord City Centre Hotel Amsterdam",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 1157,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/103828758181203017802/photos\">WestCord City Centre Hotel Amsterdam</a>"
+               ],
+               "photo_reference": "CmRaAAAA6iJQKFJgWIRyMYvdm3LeJc7ZcoOlKFaYfMDNGB5W6xjOC4ZPEfNAcrrY4dgtvL2uUBDrnHMwIsPNC5o9FNJRkOACv3kAZC-wtHBox-W4iJmASR7ls4ZA8wggmKlyf4GcEhB1oVnWUBZdsqooTDWv1m6tGhToTb7NYGBwcrybZVsaw_81u09NEQ",
+               "width": 2048
+            }
+         ],
+         "place_id": "ChIJd_OCz8cJxkcRuDm1vW7Mm2k",
+         "plus_code": {
+            "compound_code": "9VGV+JG Amsterdam, Netherlands",
+            "global_code": "9F469VGV+JG"
+         },
+         "rating": 4,
+         "reference": "ChIJd_OCz8cJxkcRuDm1vW7Mm2k",
+         "scope": "GOOGLE",
+         "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 697,
+         "vicinity": "Nieuwezijds Voorburgwal 50, Amsterdam"
+      },
+      {
+         "geometry": {
+            "location": {
+               "lat": 52.37807489999999,
+               "lng": 4.8964216
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 52.3793730802915,
+                  "lng": 4.897862480291503
+               },
+               "southwest": {
+                  "lat": 52.3766751197085,
+                  "lng": 4.895164519708498
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id": "f1451ba0244d91d177b58babdcd09ba37e9ac6a1",
+         "name": "Hotel ibis Styles Amsterdam Central Station",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 1365,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/103403550641510286179/photos\">Hotel ibis Styles Amsterdam Central Station</a>"
+               ],
+               "photo_reference": "CmRaAAAAO4s2DrjuCGwyfpV_1PbR8MBTWTbuBCSkrjnfMmt3VSk4o0jLDUweFR88SpiPAQn5pS1khFsJoXpSqKGQARwUd0KxsRYmUg-IpfnqIugVN1X04ocZOqUSFhXrTC8-s9adEhDaF_iElXA-53_xoNFegUVMGhSGA0KGyCiJWMwIiqqoU7NWTBZcrw",
+               "width": 2048
+            }
+         ],
+         "place_id": "ChIJzdTg4rcJxkcR5MNNJXfkkG8",
+         "plus_code": {
+            "compound_code": "9VHW+6H Amsterdam, Netherlands",
+            "global_code": "9F469VHW+6H"
+         },
+         "rating": 3.9,
+         "reference": "ChIJzdTg4rcJxkcR5MNNJXfkkG8",
+         "scope": "GOOGLE",
+         "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 723,
+         "vicinity": "Martelaarsgracht 10, Amsterdam"
+      },
+      {
+         "geometry": {
+            "location": {
+               "lat": 52.3751867,
+               "lng": 4.900315300000001
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 52.3765575802915,
+                  "lng": 4.901578280291503
+               },
+               "southwest": {
+                  "lat": 52.3738596197085,
+                  "lng": 4.898880319708498
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id": "ced6eb238b8b8d1946f45c5ca8fc9f770ee01294",
+         "name": "Hotel The Globe",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 3000,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/100660849729147551170/photos\">Viju Arehalli</a>"
+               ],
+               "photo_reference": "CmRaAAAAZJmzM3DPuvZk-LWyVnUQNetYKZbg3NKW2-j7GApsZ_TYOZDhTkiYZgdk7N4RpGligVW4IHjG1ecDWTp9erDtYQTMnfbcvSbwwGYPys-F9PbM9Tqna3oGglAEWI_q65GnEhBUo8dXs5bQpVVwQRoT2uZdGhRbF4UiWZGn6OqvhxaFcb1QiP0VOw",
+               "width": 4000
+            }
+         ],
+         "place_id": "ChIJx9uWurkJxkcRIf4hRQKglRA",
+         "plus_code": {
+            "compound_code": "9WG2+34 Amsterdam, Netherlands",
+            "global_code": "9F469WG2+34"
+         },
+         "rating": 3.2,
+         "reference": "ChIJx9uWurkJxkcRIf4hRQKglRA",
+         "scope": "GOOGLE",
+         "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 480,
+         "vicinity": "Oudezijds Voorburgwal 3, Amsterdam"
+      }
+   ],
+   "status": "OK"
+}
