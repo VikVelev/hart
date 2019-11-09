@@ -3,17 +3,17 @@ import { Button, Card, Image } from 'semantic-ui-react'
 
 
 export default class SiteCard extends Component {
-	constructor(props){
+	constructor(props) {
 		super(props)
 		this.handleAccept = this.handleAccept.bind(this);
 		this.handleDecline = this.handleDecline.bind(this);
 	}
 	handleAccept() {
-		this.props.handleDecision(this.props.siteInfo.key ,true);
+		this.props.handleDecision(this.props.siteInfo.key, true);
 
 	}
 	handleDecline() {
-		this.props.handleDecision(this.props.siteInfo.key ,false);
+		this.props.handleDecision(this.props.siteInfo.key, false);
 	}
 
 	render() {
@@ -25,8 +25,8 @@ export default class SiteCard extends Component {
 						size='mini'
 						src='https://upload.wikimedia.org/wikipedia/commons/1/1d/Taj_Mahal_%28Edited%29.jpeg'
 					/>
-					<Card.Header>Vladi Markov</Card.Header>
-					<Card.Description>Pevec ot separeva banq</Card.Description>
+					<Card.Header>{this.props.siteInfo.name}</Card.Header>
+					<Card.Description>Pevec ot separeva banq {this.props.siteInfo.key}</Card.Description>
 				</Card.Content>
 				<Card.Content extra>
 					<div className='ui two buttons'>
