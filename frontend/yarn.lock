@@ -1220,6 +1220,25 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
+"@react-google-maps/api@^1.7.9":
+  version "1.7.9"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/api/-/api-1.7.9.tgz#3b4cadfce1730ca97df261d1b2bae53916b488be"
+  integrity sha512-rJexXZmeoJPCmEr3HtxMM4PRtfFXyv3PqlGCqIzNDHQ+VF6lLCSZ4kzLwjcQDlscBEqxV16QDXVnf7Jxo5GqGg==
+  dependencies:
+    "@react-google-maps/infobox" "1.7.8"
+    "@react-google-maps/marker-clusterer" "1.7.8"
+    invariant "2.2.4"
+
+"@react-google-maps/infobox@1.7.8":
+  version "1.7.8"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/infobox/-/infobox-1.7.8.tgz#7ec2dc3fc933f091f40cf74cd1ac9c32e378da52"
+  integrity sha512-HeSb6R4ne1h+r3kMi1/jp49mI4W9wkXwQaC7PTuXyfRi27i9Pyh5Z18xl4mpgE2yUUOapvl2r6dB3K1YpKzs4w==
+
+"@react-google-maps/marker-clusterer@1.7.8":
+  version "1.7.8"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/marker-clusterer/-/marker-clusterer-1.7.8.tgz#e09a28824d3c7c32bb86e45dd30f5fd7238e63df"
+  integrity sha512-i3GVDMusP/BErRP9WuEka1mYEWQdBcpPNo9LyAaP0GGOmKxPczJrdzMFBqSSGJk+lefywZXGoTi52D2O7KWeyw==
+
 "@semantic-ui-react/event-stack@^3.1.0":
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/@semantic-ui-react/event-stack/-/event-stack-3.1.1.tgz#3263d17511db81a743167fe45281a24b3eb6b3c8"
@@ -3611,6 +3630,11 @@ dotenv@6.2.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.2.0.tgz#941c0410535d942c8becf28d3f357dbd9d476064"
   integrity sha512-HygQCKUBSFl8wKQZBSemMywRWcEDNidvNbjGVyZu3nbZ8qq9ubiPoGLMdRDpfSrpkkm9BXYFkpKxxFX38o/76w==
 
+dotenv@^8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
+  integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
+
 duplexer@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.1.tgz#ace6ff808c1ce66b57d1ebf97977acb02334cfc1"
@@ -5285,7 +5309,7 @@ internal-ip@^4.2.0:
     default-gateway "^4.2.0"
     ipaddr.js "^1.9.0"
 
-invariant@^2.2.2, invariant@^2.2.4:
+invariant@2.2.4, invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
