@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solver>
+    <constructionHeuristic>
+        <queuedEntityPlacer>
+            <entitySelector id="placerEntitySelector">
+                <entityClass>domain.Travel</entityClass>
+                <cacheType>PHASE</cacheType>
+            </entitySelector>
+        </queuedEntityPlacer>
+<!--        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>-->
+    </constructionHeuristic>
+    <localSearch>
+
+        <unionMoveSelector>
+            <changeMoveSelector/>
+            <swapMoveSelector/>
+            <subChainChangeMoveSelector>
+                <entityClass>domain.Visit</entityClass>
+
+                <selectReversingMoveToo>true</selectReversingMoveToo>
+            </subChainChangeMoveSelector>
+            <subChainSwapMoveSelector>
+                <selectReversingMoveToo>true</selectReversingMoveToo>
+            </subChainSwapMoveSelector>
+            <!-- TODO use nearby selection to scale out -->
+        </unionMoveSelector>
+        <acceptor>
+            <lateAcceptanceSize>200</lateAcceptanceSize>
+        </acceptor>
+        <forager>
+            <acceptedCountLimit>1</acceptedCountLimit>
+        </forager>
+    </localSearch>
+</solver>
