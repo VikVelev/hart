@@ -1,8 +1,9 @@
 import React from 'react';
 import './sass/App.scss'
-import Store from '../store';
+import Store from '../Store';
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import WelcomingScreen from './WelcomingScreen';
+import Profile from './Profile';
 
 function App() {
     return (
@@ -11,6 +12,9 @@ function App() {
                 <Switch>
                     <Route path="/welcome">
                         <WelcomingScreen />
+                    </Route>
+                    <Route path="/profile">
+                        <Profile store = {Store} />
                     </Route>
                 </Switch>
             </div>
