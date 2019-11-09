@@ -1,6 +1,6 @@
 .WelcomeScreen{
     .placeForm{
-        display: none !important;
+        // display: none !important;
         .countryForm, .cityForm{
             height: 30px;
             width:80%;
@@ -9,7 +9,7 @@
         }
     }
     .timeForm{
-        display: none !important;
+        // display: none !important;
         .buttons{
             margin:auto;
             .middleButton:focus,.middleButton:hover{
@@ -52,7 +52,15 @@
     }
 }
 .title{
-    padding-top:10px;
+    padding-top:20px;
     padding-bottom: 20px;
     font-size: x-large;
+    width: 100% !important;
 }
+
+@media(max-width: 767px) {
+    .ui.container.firstHeader {
+        width: 100% !important;
+    }
+}
+    
