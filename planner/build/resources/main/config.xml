@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <solver>
-    <environmentMode>PRODUCTION</environmentMode>
+<!--    <environmentMode>PRODUCTION</environmentMode>-->
     <constructionHeuristic>
         <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
 <!--        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>-->

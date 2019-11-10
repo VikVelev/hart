@@ -8,7 +8,8 @@ import places from "../Data/places_details";
 import matrix from "../Data/matrix";
 
 import axios from 'axios';
-
+import _ from 'lodash';
+import FuzzySet from "fuzzyset.js"
 
 @observer
 class Profile extends Component {
@@ -46,11 +47,28 @@ class Profile extends Component {
             })
         })
 
-        const tempSites = places;
-        let sites = []
-        tempSites.forEach((site) => {
+
+        const tempSites = places.map(place => ([ place, new FuzzySet(place.map(site => site.vicinity)) ]))
+        let sites = this.nameDictionary.flatMap(el => {
+            var r = tempSites.reduce((prev, curr, i) => { 
+                // debugger
+
+                let a = curr[1].get(el.name.split(",")[0] + "," + el.name.split(",")[2])
+
+
+                if(a != null && prev[0][0] < a[0][0]) {
+                    // debugger
+                    let found = _.find(curr[0], ["vicinity", a[0][1]])
+                    return [a[0], found]
+                }else{
+                    return prev
+                }
+            }, [[0 , ""], {}])  
+            // debugger
+            if(r[0][0] == 0) return []
+
             let obj = {}
-            
+            let site = [ r[1] ]
             obj.key = site[0].place_id;
             obj.picked = false;
             obj.name = site[0].name;
@@ -60,10 +78,13 @@ class Profile extends Component {
                 lat: site[0].geometry.location.lat,
                 lng: site[0].geometry.location.lng,
             }
-            
-            sites.push(obj)
+            obj.dbName = el.name
+
+            return [ obj ]  
+
         })
 
+        debugger
         const shuffle = this.takeRandom(this.state.display, sites.length); // take display amount of indexes from site.length indexes
         const sitesOnDisplay = sites.filter((site, index) => shuffle.includes(index)); // filter sites with matching index into onDisplay state 
         
@@ -104,16 +125,15 @@ class Profile extends Component {
             // 
             
             this.props.store.addSite(key, accepted) // updates store      
-            // let choices = this.props.store.choices
+            let choices = this.props.store.choices
             
-            let randomIndices = this.takeRandom(5, this.nameDictionary.length);
+            // let randomIndices = this.takeRandom(5, this.nameDictionary.length);
 
-            this.props.store.choosenLocations = this.nameDictionary.filter((_, index) => randomIndices.includes(index));
-            
+            this.props.store.choosenLocations = choices.map(choice => choice.dbName)
             let query = ""
 
-            this.props.store.choosenLocations.forEach((place) => {
-                query = query + "item=" + place.name + "&"
+            this.props.store.choosenLocations.forEach((name) => {
+                query = query + "item=" + name + "&"
             })
 
             let queryString = "http://localhost:8080/?" + query;
