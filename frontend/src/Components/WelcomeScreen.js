@@ -150,7 +150,6 @@ class WelcomeScreen extends Component {
             city:    this.state.city,
             time:    this.state.time
         }).then(function (response) {
-            console.log(response);
             this.setState({ submitted: true });
         }).catch(function (error) {
             console.log(error);

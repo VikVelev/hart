@@ -19,21 +19,20 @@ export default class TripPlan extends Component {
 
     componentDidMount() {
 
-        console.log(this.props.store)
+        // console.log(this.props.store)
         setTimeout(() => {
             this.setState({ visible: true });
         }, 800);
     }
 
     handleTripChange(stop){
-        this.setState({toggled:this.state.toggled.map((value,index)=>stop ==index? true:false)})
-        this.props.onTripChange(stop);
+        this.setState({ toggled: this.state.toggled.map((value,index) => stop === index) })
+        this.props.store.tripRoute[stop].visible = !this.props.store.tripRoute[stop].visible;
     }
 
     render() {
-        console.log(this.props.store)
-        const parsedString = this.props.store.tripRoute.map(value => value.origin.split(',')[0])
-        console.log(parsedString)
+        const parsedString = this.props.store.tripRoute.map(value => value.name.split(',')[0])
+
         return (
             <Transition visible={this.state.visible} animation="slide up" duration={500}>
                 <Segment className="TripPlan">
@@ -42,7 +41,7 @@ export default class TripPlan extends Component {
                             <Card className="tripCard" fluid key={index}>
                                 <Card.Header>{this.state.tags[index]}</Card.Header>
                                 <Card.Content>{stop}</Card.Content>
-                                <Button toggle active ={this.state.toggled[index]} color="red" toggle onClick={() => this.handleTripChange(index)}  className="close-button"  icon ='close'></Button>
+                                <Button toggle active={this.state.toggled[index]} color="red" toggle onClick={() => this.handleTripChange(index)}  className="close-button"  icon ='close'></Button>
                             </Card>
                         )}
                     </Card.Group>

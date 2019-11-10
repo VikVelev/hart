@@ -14,56 +14,33 @@ export default class Map extends Component {
             travelMode: 'DRIVING',
             origin: '',
             destination: '',
-            requesting: false,
+            requesting: true,
         }
-
 
         this.directionsCallback = this.directionsCallback.bind(this)
     }
-
-    componentDidMount() {
-
-        const parsedString = this.props.tripRoute.map(value => value.origin)
-        parsedString.push(this.props.tripRoute[this.props.tripRoute.length-1]);
-
-        const useWaypoints = parsedString.length <= 2? false : true;
-
-        const waypoints = parsedString.slice(1, this.props.tripRoute.length - 1).map(value => ({ location: value }))
-        
-        const origin = parsedString[0]
-        const destination = parsedString[parsedString.length - 1]
-
-
-		/*
-         key: kur - 5 node graph
-         key: hui - 2 node graph
-        */
-        const cachedResponse = JSON.parse(localStorage.getItem("kur"))
-        this.setState({ response: cachedResponse });
-
-        //this.setState({useWaypoints:useWaypoints, waypoints: waypoints, origin: origin, destination: destination });
-
-    }
-
-
 
     directionsCallback(response) {
         if (response !== null) {
             if (response.status === 'OK') {
                 console.log("PRAVISH ZAQVKA PEDERAS SPRI");
-                localStorage.setItem("kur", JSON.stringify(response))
                 this.setState(
                     () => ({
                         response
                     })
                 )
             } else {
-                console.log('response: ', response)
+                console.log('error: ', response)
             }
         }
     }
-    render() {
 
+    render() {
+        
+        console.log(this.props.store.currentTripRoute)
+        let curTrip = this.props.store.currentTripRoute
+        const waypoints = curTrip.slice(1, curTrip.length - 1).map( value => ({ location: value.name }))
+        console.log(waypoints);
         const mapStyle = {
             height: '100%',
             width: '100%'
@@ -78,22 +55,18 @@ export default class Map extends Component {
                         zoom={11}
                         center={{ lat: 52.3366039, lng: 4.8667033 }}
                         onLoad={map => { console.log('DirectionsRenderer onLoad map: ', map) }}>
-
-                        {(
-                            !this.state.requesting &&
-                            this.state.destination !== '' &&
-                            this.state.origin !== ''
-                        ) && (
-                                <DirectionsService
-                                    options={{
-                                        travelMode: this.state.travelMode,
-                                        destination: this.state.destination,
-                                        origin: this.state.origin,
-                                        waypoints: this.state.useWaypoints ? this.state.waypoints : {}
-                                    }}
-                                    callback={this.directionsCallback}
-                                />
-                            )
+                            {console.log(curTrip)}
+                        {
+                            curTrip.length > 0 &&
+                            <DirectionsService
+                                options={{
+                                    travelMode: this.state.travelMode,
+                                    destination: curTrip[curTrip.length - 1].name,
+                                    origin: curTrip[0].name,
+                                    waypoints: waypoints
+                                }}
+                                callback={this.directionsCallback}
+                            />
                         }
                         {
                             this.state.response !== null && (

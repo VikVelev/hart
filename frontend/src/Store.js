@@ -1,4 +1,4 @@
-import { observable, action } from "mobx"
+import { observable, action, computed } from "mobx"
 
 class Store {
     /*
@@ -9,11 +9,18 @@ class Store {
     */
     @observable choices = [];
     @observable choosenLocations = [];
-    @observable computedPath = [];
+    @observable tripRoute = [];        // The full trip route
     @observable location = "";
-    @observable tripRoute = [];
 
-    @action addTripRoute = (route) =>{
+    @computed get currentTripRoute() {
+        return this.tripRoute.filter((el) => el.visible)
+    }
+
+    @action setTripRoute = (route) =>{
+        this.tripRoute = route
+    }
+
+    @action onTripChange = (route) =>{
         this.tripRoute = route
     }
     

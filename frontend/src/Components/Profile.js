@@ -64,7 +64,6 @@ class Profile extends Component {
             sites.push(obj)
         })
 
-        console.log(sites);
         const shuffle = this.takeRandom(this.state.display, sites.length); // take display amount of indexes from site.length indexes
         const sitesOnDisplay = sites.filter((site, index) => shuffle.includes(index)); // filter sites with matching index into onDisplay state 
         
@@ -120,7 +119,12 @@ class Profile extends Component {
             let queryString = "http://localhost:8080/?" + query;
 
             axios.get(queryString).then((res) => {
-                this.props.store.computedPath = res.data
+                let datum = res.data;
+                datum.forEach((el) => {
+                    el.visible = true;
+                })
+
+                this.props.store.setTripRoute(datum);
                 console.log(this.props, "SUCCESS");
                 this.setState({ submitted: true, progress: 100 })
             }).catch((err) => {
