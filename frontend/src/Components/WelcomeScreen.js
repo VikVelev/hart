@@ -25,9 +25,9 @@ class WelcomeScreen extends Component {
     getLocationView = () => {
         return (
             <Form.Group className="placeForm animationGroup">
-                <Container className="title firstHeader" 
-                           textAlign='center'
-                           >
+                <Container className="title firstHeader"
+                    textAlign='center'
+                >
                     Where are you going today?
                     <Divider />
                 </Container>
@@ -63,24 +63,24 @@ class WelcomeScreen extends Component {
                 <Divider />
                 </Container>
                 <Button.Group size={"big"}>
-                    <Form.Button type="button" 
-                                 onClick={() => { 
-                                    this.setState({
-                                         time: (this.state.time > 0 ? this.state.time - 0.5 : 0)
-                                    }) 
-                                 }}
-                                 icon='left chevron'
+                    <Form.Button type="button"
+                        onClick={() => {
+                            this.setState({
+                                time: (this.state.time > 0 ? this.state.time - 0.5 : 0)
+                            })
+                        }}
+                        icon='left chevron'
                     />
                     <Form.Button className="middleButton">
-                        {this.state.time} { this.state.time > 1 ? "hrs" : "hr" }
+                        {this.state.time} {this.state.time > 1 ? "hrs" : "hr"}
                     </Form.Button>
                     <Form.Button type="button"
-                                 onClick={() => {
-                                    this.setState({
-                                        time: (this.state.time + 0.5)
-                                    }) 
-                                }} 
-                                icon='right chevron' 
+                        onClick={() => {
+                            this.setState({
+                                time: (this.state.time + 0.5)
+                            })
+                        }}
+                        icon='right chevron'
                     />
                 </Button.Group>
             </Form.Group>
@@ -88,11 +88,11 @@ class WelcomeScreen extends Component {
     }
 
     getMoneyView = () => {
-        return(
+        return (
             <Form.Group className="costForm animationGroup">
                 <Container className="title" textAlign='center'>
                     How much money do you want to spend?
-                <Divider size="small"/>
+                <Divider size="small" />
                 </Container>
 
                 <Container className="checkboxContainer">
@@ -121,19 +121,19 @@ class WelcomeScreen extends Component {
 
     viewMap = {
         "location": this.getLocationView.bind(this),
-        "time":     this.getTimeView.bind(this),
-        "money":    this.getMoneyView.bind(this),
+        "time": this.getTimeView.bind(this),
+        "money": this.getMoneyView.bind(this),
     }
 
     changeForm = (e, { name, value }) => {
 
-        if(name === "next") {
+        if (name === "next") {
             this.setState({
                 currentView: (this.state.currentView + 1)
             })
         }
 
-        if(name === "prev") {
+        if (name === "prev") {
             this.setState({
                 currentView: (this.state.currentView - 1)
             })
@@ -145,15 +145,7 @@ class WelcomeScreen extends Component {
             Post request with chosen city and country
             this.setState({ submitted: true });
         */
-        axios.post('/', {
-            country: this.state.country,
-            city:    this.state.city,
-            time:    this.state.time
-        }).then(function (response) {
-            this.setState({ submitted: true });
-        }).catch(function (error) {
-            console.log(error);
-        });
+
         this.setState({ submitted: true });
     }
 
@@ -240,26 +232,26 @@ class WelcomeScreen extends Component {
 
                             <Container className="buttonContainer">
                                 <Button disabled={this.state.currentView == 0}
-                                        onClick={this.changeForm} 
-                                        size="large"
-                                        color="blue"
-                                        name="prev"
-                                        content="Prev"
-                                        icon='left arrow'
-                                        labelPosition='left'
-                                    />
+                                    onClick={this.changeForm}
+                                    size="large"
+                                    color="blue"
+                                    name="prev"
+                                    content="Prev"
+                                    icon='left arrow'
+                                    labelPosition='left'
+                                />
                                 <Button disabled={this.state.currentView == this.stateMachine.length - 1}
-                                        onClick={this.changeForm} 
-                                        size="large" 
-                                        color="blue"
-                                        name="next" 
-                                        content='Next' 
-                                        icon='right arrow' 
-                                        labelPosition='right' 
-                                    />
+                                    onClick={this.changeForm}
+                                    size="large"
+                                    color="blue"
+                                    name="next"
+                                    content='Next'
+                                    icon='right arrow'
+                                    labelPosition='right'
+                                />
                             </Container>
 
-                            <Transition visible={ this.state.currentView == 2 } animation='fade' duration={500}>
+                            <Transition visible={this.state.currentView == 2} animation='fade' duration={500}>
                                 <Form.Button className="submitButton" onClick={this.handleSubmit} size="large" color="blue">Submit</Form.Button>
                             </Transition>
                         </Form>
