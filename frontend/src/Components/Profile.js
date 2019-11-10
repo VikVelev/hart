@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Divider, Card, Progress } from 'semantic-ui-react'
+import { Container, Divider, Card, Progress, Transition, List, Segment } from 'semantic-ui-react'
 import './sass/Profile.scss'
 import SiteCard from './Profile/SiteCard';
 import { observer } from 'mobx-react';
@@ -14,26 +14,26 @@ class Profile extends Component {
         this.state = {
             sites: [],
             sitesOnDisplay: [],
-            progress: 0, // progress bar state
-            display: 4, // max sites on page 
-            submitted: false
-
+            progress: 0,            // progress bar state
+            display: 4,             // max sites on page 
+            submitted: false,
+            visible: false,
         };
         this.onDecision = this.onDecision.bind(this);
-        this.takeRandom = this.takeRandom.bind(this); 3
+        this.takeRandom = this.takeRandom.bind(this);
     }
     componentDidMount() {
-        const sites = [{ key: "a", name: "Kur 1", picked: false },
-        { key: "b", name: "Kur 2", picked: false },
-        { key: "c", name: "Kur 3", picked: false },
-        { key: "d", name: "Kur 4", picked: false },
-        { key: "e", name: "Kur 5", picked: false },
-        { key: "f", name: "Kur 6", picked: false },
-        { key: "g", name: "Kur 8", picked: false },
-        { key: "h", name: "Kur 9", picked: false },
-        { key: "i", name: "Kur 10", picked: false }]
-
-
+        const sites = [
+            { key: 1, name: "Kur 1", picked: false },
+            { key: 2, name: "Kur 2", picked: false },
+            { key: 3, name: "Kur 3", picked: false },
+            { key: 4, name: "Kur 4", picked: false },
+            { key: 5, name: "Kur 5", picked: false },
+            { key: 6, name: "Kur 6", picked: false },
+            { key: 7, name: "Kur 8", picked: false },
+            { key: 8, name: "Kur 9", picked: false },
+            { key: 9, name: "Kur 10", picked: false }
+        ]
 
         const shuffle = this.takeRandom(this.state.display, sites.length); // take display amount of indexes from site.length indexes
         const sitesOnDisplay = sites.filter((site, index) => shuffle.includes(index)); // filter sites with matching index into onDisplay state 
@@ -44,7 +44,6 @@ class Profile extends Component {
         })
         this.setState({ ...this.state, sites: sites, sitesOnDisplay: sitesOnDisplay });
     }
-
 
     takeRandom(displaySize, arraySize) {
         let arr = [];
@@ -69,9 +68,7 @@ class Profile extends Component {
         const replacement = this.newRandom(sites); // get replacement from existing state
 
         // no places left to see
-
-        // 
-        if (sites.filter(x => x.picked === false).length <= 1 || replacement === undefined) {
+        if (sites.filter(x => !x.picked).length <= 1 || replacement === undefined) {
             // 
             this.props.store.addSite(key, accepted) // updates store      
             let choices = this.props.store.choices
@@ -79,12 +76,12 @@ class Profile extends Component {
                 choicesArray: choices
             }) // write your proper post request here
 
-            
-            this.setState({...this.state, progress:100}); // fancy shit
+            this.setState({ progress: 100 }); // fancy shit
 
             setTimeout(() => {
-                this.setState({ ...this.state, submitted: true })
+                this.setState({ submitted: true })
             }, 2000);
+            
             return;
         }
 
@@ -93,34 +90,57 @@ class Profile extends Component {
                 site.picked = true;
             }
         })
-        sitesOnDisplay = sitesOnDisplay.map((value, index) => value.key === key ? replacement : value) //remove accepted key 
+
+        let toBeRemoved = sitesOnDisplay.filter((value) => value.key === key);
+        let indexToRemove = sitesOnDisplay.indexOf(toBeRemoved[0])
+
+        sitesOnDisplay.splice(indexToRemove, 1);
+
+        this.setState({
+            sitesOnDisplay: sitesOnDisplay,
+        })
+
+        sitesOnDisplay.push(replacement);
+        //sitesOnDisplay = sitesOnDisplay.map((value) => value.key === key ? replacement : value) //remove accepted key 
+        // sitesOnDisplay.splice()
 
         this.props.store.addSite(key, accepted) // updates store      
         this.setState({
-            ...this.state, sites: sites,
+            sites: sites,
             sitesOnDisplay: sitesOnDisplay,
             progress: this.state.progress >= 100 ? 100 : this.state.progress + 20
         }) // push state changes
 
     }
 
+    componentWillMount(){
+        setTimeout(() => {
+            this.setState({visible: true})
+        }, 500);
+    }
+
     render() {
+
         return (
-            <div className="Profile">
-                <Container className="title" textAlign='center'>Center Aligned:</Container>
-                <Container className="profileContent">
-                    <Divider />
-                    <Card.Group>
-                        {this.state.sitesOnDisplay.map((site, key) =>
-                            <SiteCard handleDecision={this.onDecision} siteInfo={site} key={key}></SiteCard>
-                        )}
-
-                    </Card.Group>
-                    <Progress className="progressBar" percent={this.state.progress} indicating />
-                    {this.state.submitted ? <Redirect push to="/map"></Redirect> : null}
-
-                </Container>
-            </div>
+                <Transition visible={this.state.visible} animation="scale" duration={500}>
+                <div className="Profile">
+                    <Container className="title" textAlign='center'>What would you like?</Container>
+                    <Container className="profileContent">
+                        <Divider />
+                        <Card.Group>
+                                {this.state.sitesOnDisplay.map((site, key) =>
+                                    <SiteCard handleDecision={this.onDecision} siteInfo={site} key={key}></SiteCard>
+                                )}
+                        </Card.Group>
+                        <Transition transitionOnMount animation="fade" duration={1000}>
+                            <Segment className="progressBar">
+                                <Progress percent={this.state.progress} indicating />
+                            </Segment>
+                        </Transition>
+                        {this.state.submitted && (<Redirect push to="/map"></Redirect>)}
+                    </Container>
+                </div>
+                </Transition>
         )
     }
 }

@@ -1,6 +1,6 @@
 .WelcomeScreen{
     .placeForm{
-        display: none !important;
+        // display: none !important;
         .countryForm, .cityForm{
             height: 30px;
             width:80%;
@@ -9,7 +9,7 @@
         }
     }
     .timeForm{
-        display: none !important;
+        // display: none !important;
         .buttons{
             margin:auto;
             .middleButton:focus,.middleButton:hover{
@@ -45,6 +45,7 @@
         width:80% !important;
         margin: auto !important;
         margin-bottom: 10px !important;
+        transition: all 0.2s;
         button{
             margin-top: 50px !important ;
             width: 100%;
@@ -52,7 +53,42 @@
     }
 }
 .title{
-    padding-top:10px;
+    padding-top:20px;
     padding-bottom: 20px;
     font-size: x-large;
+    width: 100% !important;
 }
+
+.ui.container.checkboxContainer {
+    margin-left: 40px !important;
+    margin-right: 40px !important;
+
+}
+
+.ui.container.buttonContainer{ 
+    position: fixed;
+    left: 50%;
+    bottom: 200px;
+    transform: translateX(-50%);
+}
+
+.animationGroup {
+    position:fixed;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+}
+
+.submitButton {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 450px;
+}
+// @media(max-width: 767px) {
+//     .ui.container.firstHeader {
+//         width: 100% !important;
+//     }
+// }
+    

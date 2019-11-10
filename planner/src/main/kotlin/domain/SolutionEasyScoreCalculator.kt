@@ -13,31 +13,33 @@ class SolutionEasyScoreCalculator : EasyScoreCalculator<Solution> {
     override fun calculateScore(solution: Solution): HardMediumSoftLongScore {
         var hardScore = solution.maxTime
         var softScore = 0L
+        var medium: Long = 0
         var set = mutableSetOf<String>()
+        var previous = solution.start
+
         for (action in solution.visitList) {
-            if(action is Visit && set.contains(action.landmark?.name ?: "")) {
-                hardScore -= action.landmark?.timeCost ?: 0
-                softScore -= action.landmark?.priceCost ?: 0
-                softScore += action.landmark?.happiness ?: 0
-                set.add(action.landmark?.name ?: "")
+            if(!set.contains(action.name)) {
+                hardScore -= action.timeCost
+                softScore -= action.priceCost
+                softScore += action.happiness
+                set.add(action.name)
 
             }
 
-            if(action is Travel && set.contains(action.path?.name ?: "")) {
-                hardScore -= action.path?.timeCost ?: 0
-                softScore -= action.path?.priceCost ?: 0
-                set.add(action.path?.name ?: "")
-
+            if(action.path != null) {
+                hardScore -= action.path!!.timeCost
+                softScore -= action.path!!.priceCost
+                set.add(action.path!!.name)
+            }else{
+                medium -= 10;
             }
-
-
-
         }
 
         if(hardScore > 0) {
+            medium += (hardScore - solution.maxTime)
             hardScore = 0
         }
-        return HardMediumSoftLongScore.of(hardScore,0, softScore)
+        return HardMediumSoftLongScore.of(hardScore, medium, softScore)
     }
 
 }
