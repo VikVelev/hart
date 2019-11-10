@@ -4,6 +4,9 @@ import './sass/Profile.scss'
 import SiteCard from './Profile/SiteCard';
 import { observer } from 'mobx-react';
 import { Redirect } from "react-router-dom";
+import places from "../Data/places_details";
+import matrix from "../Data/matrix";
+
 import axios from 'axios';
 
 
@@ -22,27 +25,56 @@ class Profile extends Component {
         this.onDecision = this.onDecision.bind(this);
         this.takeRandom = this.takeRandom.bind(this);
     }
-    componentDidMount() {
-        const sites = [
-            { key: 1, name: "Kur 1", picked: false },
-            { key: 2, name: "Kur 2", picked: false },
-            { key: 3, name: "Kur 3", picked: false },
-            { key: 4, name: "Kur 4", picked: false },
-            { key: 5, name: "Kur 5", picked: false },
-            { key: 6, name: "Kur 6", picked: false },
-            { key: 7, name: "Kur 8", picked: false },
-            { key: 8, name: "Kur 9", picked: false },
-            { key: 9, name: "Kur 10", picked: false }
-        ]
 
+    locationDictionary = []
+    nameDictionary = []
+
+    componentDidMount() {
+
+        matrix.forEach((row) => {
+            row.forEach((el) => {
+                if (el.distance !== undefined) {
+                    if(el.distance.value === 0) {
+                        this.locationDictionary.push(el);
+                        this.nameDictionary.push({ 
+                            key: el.hashKey, 
+                            name: el.origin, 
+                            picked: false 
+                        });
+                    }
+                }
+            })
+        })
+
+        const tempSites = places;
+        let sites = []
+        tempSites.forEach((site) => {
+            let obj = {}
+            
+            obj.key = site[0].place_id;
+            obj.picked = false;
+            obj.name = site[0].name;
+            obj.description = site[0].vicinity;
+            obj.urlImage = site[0].icon;
+            obj.coords = {
+                lat: site[0].geometry.location.lat,
+                lng: site[0].geometry.location.lng,
+            }
+            
+            sites.push(obj)
+        })
+
+        console.log(sites);
         const shuffle = this.takeRandom(this.state.display, sites.length); // take display amount of indexes from site.length indexes
         const sitesOnDisplay = sites.filter((site, index) => shuffle.includes(index)); // filter sites with matching index into onDisplay state 
+        
         sites.forEach((site, index) => {
             if (shuffle.includes(index)) {
                 site.picked = true;
             }
         })
-        this.setState({ ...this.state, sites: sites, sitesOnDisplay: sitesOnDisplay });
+
+        this.setState({ sites: sites, sitesOnDisplay: sitesOnDisplay });
     }
 
     takeRandom(displaySize, arraySize) {
@@ -61,6 +93,7 @@ class Profile extends Component {
         //return random unpicked site
         return choices[Math.floor(Math.random() * choices.length)]
     }
+
     onDecision(key, accepted) {
         let sites = this.state.sites;
         let sitesOnDisplay = this.state.sitesOnDisplay;
@@ -68,19 +101,31 @@ class Profile extends Component {
         const replacement = this.newRandom(sites); // get replacement from existing state
 
         // no places left to see
-        if (sites.filter(x => !x.picked).length <= 1 || replacement === undefined) {
+        if (sites.filter(x => x.picked).length == 8 || replacement === undefined) {
             // 
+            
             this.props.store.addSite(key, accepted) // updates store      
-            let choices = this.props.store.choices
-            axios.post("",{
-                choicesArray: choices
-            }) // write your proper post request here
+            // let choices = this.props.store.choices
+            
+            let randomIndices = this.takeRandom(5, this.nameDictionary.length);
 
-            this.setState({ progress: 100 }); // fancy shit
+            this.props.store.choosenLocations = this.nameDictionary.filter((_, index) => randomIndices.includes(index));
+            
+            let query = ""
 
-            setTimeout(() => {
-                this.setState({ submitted: true })
-            }, 2000);
+            this.props.store.choosenLocations.forEach((place) => {
+                query = query + "item=" + place.name + "&"
+            })
+
+            let queryString = "http://localhost:8080/?" + query;
+
+            axios.get(queryString).then((res) => {
+                this.props.store.computedPath = res.data
+                console.log(this.props, "SUCCESS");
+                this.setState({ submitted: true, progress: 100 })
+            }).catch((err) => {
+                console.log(err);
+            });
             
             return;
         }
@@ -127,7 +172,7 @@ class Profile extends Component {
                     <Container className="title" textAlign='center'>What would you like?</Container>
                     <Container className="profileContent">
                         <Divider />
-                        <Card.Group>
+                        <Card.Group className="siteCards">
                                 {this.state.sitesOnDisplay.map((site, key) =>
                                     <SiteCard handleDecision={this.onDecision} siteInfo={site} key={key}></SiteCard>
                                 )}

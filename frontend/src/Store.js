@@ -8,6 +8,8 @@ class Store {
     }
     */
     @observable choices = [];
+    @observable choosenLocations = [];
+    @observable computedPath = [];
     @observable location = "";
 
     @action addSite = (key, accepted)  =>{

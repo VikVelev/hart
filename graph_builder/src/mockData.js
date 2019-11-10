@@ -5,7 +5,7 @@ const key = require("../key");
 let content = fs.readFileSync('../data/coords.csv', 'utf8');
 let coordsArray = content.split("|");
 
-let radius = 50;
+let radius = 40;
 let type = "point_of_interest"
 let placesDetails = []
 

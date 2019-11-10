@@ -37,10 +37,10 @@ export default class SiteCard extends Component {
 						<Image
 							floated='right'
 							size='mini'
-							src='https://upload.wikimedia.org/wikipedia/commons/1/1d/Taj_Mahal_%28Edited%29.jpeg'
+							src={this.props.siteInfo.urlImage}
 							/>
 						<Card.Header>{this.props.siteInfo.name}</Card.Header>
-						<Card.Description>Pevec ot separeva banq {this.props.siteInfo.key}</Card.Description>
+						<Card.Description>{this.props.siteInfo.description}</Card.Description>
 					</Card.Content>
 					<Card.Content extra>
 						<div className='ui two buttons'>
