@@ -8,7 +8,11 @@ class Store {
     }
     */
     @observable choices = [];
-    @observable location = "";
+    @observable tripRoute = [];
+
+    @action addTripRoute = (route) =>{
+        this.tripRoute = route
+    }
 
     @action addSite = (key, accepted)  =>{
         this.choices.push({key:key, accepted:accepted});
