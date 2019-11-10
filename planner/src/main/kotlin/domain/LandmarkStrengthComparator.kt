@@ -1,10 +1,14 @@
 package domain
 
+import org.optaplanner.core.impl.heuristic.selector.common.decorator.SelectionSorterWeightFactory
 import java.util.*
 import java.util.Collections.reverseOrder
 import java.util.Comparator.comparing
 import java.util.Comparator.comparingLong
 import java.util.Comparator
+
+
+
 
 class LandmarkStrengthComparator : Comparator<Landmark> {
     override fun compare(a: Landmark?, b: Landmark?): Int {

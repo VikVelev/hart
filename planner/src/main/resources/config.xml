@@ -1,34 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <solver>
+    <environmentMode>PRODUCTION</environmentMode>
     <constructionHeuristic>
-        <queuedEntityPlacer>
-            <entitySelector id="placerEntitySelector">
-                <entityClass>domain.Travel</entityClass>
-                <cacheType>PHASE</cacheType>
-            </entitySelector>
-        </queuedEntityPlacer>
+        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
 <!--        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>-->
     </constructionHeuristic>
+
+<!--    <scoreDirectorFactory>-->
+        <!--<easyScoreCalculatorClass>org.optaplanner.examples.tsp.solver.score.TspEasyScoreCalculator</easyScoreCalculatorClass>-->
+        <!--<incrementalScoreCalculatorClass>org.optaplanner.examples.tsp.solver.score.TspIncrementalScoreCalculator</incrementalScoreCalculatorClass>-->
+<!--        <scoreDrl>rules.drl</scoreDrl>-->
+        <!--<assertionScoreDirectorFactory>-->
+        <!--<easyScoreCalculatorClass>org.optaplanner.examples.tsp.solver.score.TspEasyScoreCalculator</easyScoreCalculatorClass>-->
+        <!--</assertionScoreDirectorFactory>-->
+<!--        <initializingScoreTrend>ONLY_DOWN</initializingScoreTrend>-->
+<!--    </scoreDirectorFactory>-->
     <localSearch>
-
         <unionMoveSelector>
-            <changeMoveSelector/>
-            <swapMoveSelector/>
+            <changeMoveSelector>
+                <cacheType>STEP</cacheType>
+                <selectionOrder>SHUFFLED</selectionOrder>
+            </changeMoveSelector>
+<!--            <swapMoveSelector>-->
+<!--            <cacheType>PHASE</cacheType>-->
+<!--            <selectionOrder>SHUFFLED</selectionOrder>-->
+<!--            </swapMoveSelector>-->
+<!--            <tailChainSwapMoveSelector/>-->
             <subChainChangeMoveSelector>
-                <entityClass>domain.Visit</entityClass>
-
-                <selectReversingMoveToo>true</selectReversingMoveToo>
+                <subChainSelector>
+                    <maximumSubChainSize>50</maximumSubChainSize>
+                </subChainSelector>
+                <selectReversingMoveToo>false</selectReversingMoveToo>
             </subChainChangeMoveSelector>
             <subChainSwapMoveSelector>
-                <selectReversingMoveToo>true</selectReversingMoveToo>
+                <selectReversingMoveToo>false</selectReversingMoveToo>
             </subChainSwapMoveSelector>
             <!-- TODO use nearby selection to scale out -->
         </unionMoveSelector>
+
+
+
         <acceptor>
-            <lateAcceptanceSize>200</lateAcceptanceSize>
+            <simulatedAnnealingStartingTemperature>3000hard/500medium/9000soft</simulatedAnnealingStartingTemperature>
+            <lateAcceptanceSize>400</lateAcceptanceSize>
         </acceptor>
         <forager>
-            <acceptedCountLimit>1</acceptedCountLimit>
+            <acceptedCountLimit>4</acceptedCountLimit>
         </forager>
     </localSearch>
 </solver>
