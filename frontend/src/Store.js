@@ -11,6 +11,7 @@ class Store {
     @observable choosenLocations = [];
     @observable tripRoute = [];        // The full trip route
     @observable location = "";
+    @observable update = false;
 
     @computed get currentTripRoute() {
         return this.tripRoute.filter((el) => el.visible)

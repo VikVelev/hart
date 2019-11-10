@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { GoogleMap, LoadScript, DirectionsService, DirectionsRenderer } from '@react-google-maps/api';
+import { autorun } from 'mobx'
 import '../sass/Map.scss'
 import keys from '../../.keys.js'
 
@@ -11,11 +12,16 @@ export default class Map extends Component {
             waypoints: {},
             useWaypoints: false,
             response: null,
-            travelMode: 'DRIVING',
+            travelMode: 'WALKING',
             origin: '',
             destination: '',
             requesting: true,
         }
+
+        autorun(() =>{
+            console.log("Running autorun", this.props.store.currentTripRoute);
+            this.forceUpdate()
+        })
 
         this.directionsCallback = this.directionsCallback.bind(this)
     }
@@ -35,15 +41,21 @@ export default class Map extends Component {
         }
     }
 
+    checkForUpdate = () => {
+
+    }
+
     render() {
         
         let curTrip = this.props.store.currentTripRoute
         const waypoints = curTrip.slice(1, curTrip.length - 1).map( value => ({ location: value.name }))
+        console.log(waypoints)
 
         const mapStyle = {
             height: '100%',
             width: '100%'
         }
+
         return (
             <div className='Map'>
                 <LoadScript id="script-loader"
@@ -54,8 +66,7 @@ export default class Map extends Component {
                         zoom={11}
                         center={{ lat: 52.3366039, lng: 4.8667033 }}
                         onLoad={map => { console.log('DirectionsRenderer onLoad map: ', map) }}>
-                        {   
-                            this.props.store.tripRoute.some((el) => el.visible) &&
+                        {  this.props.store.tripRoute.some((el) => el.visible) && this.props.store.tripRoute && 
                             <DirectionsService
                                 options={{
                                     travelMode: this.state.travelMode,
@@ -63,6 +74,7 @@ export default class Map extends Component {
                                     origin: curTrip[0].name,
                                     waypoints: waypoints
                                 }}
+
                                 callback={this.directionsCallback}
                             />
                         }
