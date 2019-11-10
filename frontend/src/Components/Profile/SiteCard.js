@@ -44,8 +44,8 @@ export default class SiteCard extends Component {
 					</Card.Content>
 					<Card.Content extra>
 						<div className='ui two buttons'>
-							<Button onClick={this.handleAccept} color='green'>Approve</Button>
-							<Button onClick={this.handleDecline} color='red'>
+							<Button onClick={this.handleAccept} basic color='green'>Approve</Button>
+							<Button onClick={this.handleDecline} basic color='red'>
 								Decline</Button>
 						</div>
 					</Card.Content>

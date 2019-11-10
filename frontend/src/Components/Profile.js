@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Divider, Card, Progress, Transition, List } from 'semantic-ui-react'
+import { Container, Divider, Card, Progress, Transition, List, Segment } from 'semantic-ui-react'
 import './sass/Profile.scss'
 import SiteCard from './Profile/SiteCard';
 import { observer } from 'mobx-react';
@@ -132,8 +132,10 @@ class Profile extends Component {
                                     <SiteCard handleDecision={this.onDecision} siteInfo={site} key={key}></SiteCard>
                                 )}
                         </Card.Group>
-                        <Transition transitionOnMount animation="fade" duration={4000}>
-                            <Progress className="progressBar" percent={this.state.progress} indicating />
+                        <Transition transitionOnMount animation="fade" duration={1000}>
+                            <Segment className="progressBar">
+                                <Progress percent={this.state.progress} indicating />
+                            </Segment>
                         </Transition>
                         {this.state.submitted && (<Redirect push to="/map"></Redirect>)}
                     </Container>
