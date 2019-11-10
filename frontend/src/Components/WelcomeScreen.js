@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react';
 import './sass/WelcomeScreen.scss'
-import { Container, Divider, Form, Button } from 'semantic-ui-react'
+import { Container, Divider, Form, Button, Transition } from 'semantic-ui-react'
 import axios from 'axios';
 import { Redirect } from "react-router-dom";
 
@@ -24,15 +24,13 @@ class WelcomeScreen extends Component {
 
     getLocationView = () => {
         return (
-            <Form.Group className="placeForm">
+            <Form.Group className="placeForm animationGroup">
                 <Container className="title firstHeader" 
                            textAlign='center'
-                           style={{width: "100%"}}
                            >
                     Where are you going today?
                     <Divider />
                 </Container>
-                <Divider />
                 <Form.Dropdown
                     className="countryForm"
                     placeholder='Select Country'
@@ -59,7 +57,7 @@ class WelcomeScreen extends Component {
 
     getTimeView = () => {
         return (
-            <Form.Group className="timeForm" >
+            <Form.Group className="timeForm animationGroup" >
                 <Container className="title" textAlign='center'>
                     How much time do you want to spend?
                 <Divider />
@@ -68,18 +66,18 @@ class WelcomeScreen extends Component {
                     <Form.Button type="button" 
                                  onClick={() => { 
                                     this.setState({
-                                         time: --this.state.time 
+                                         time: (this.state.time > 0 ? this.state.time - 0.5 : 0)
                                     }) 
                                  }}
                                  icon='left chevron'
                     />
                     <Form.Button className="middleButton">
-                        {this.state.time}
+                        {this.state.time} { this.state.time > 1 ? "hrs" : "hr" }
                     </Form.Button>
                     <Form.Button type="button"
                                  onClick={() => {
                                     this.setState({
-                                        time: ++this.state.time 
+                                        time: (this.state.time + 0.5)
                                     }) 
                                 }} 
                                 icon='right chevron' 
@@ -91,10 +89,10 @@ class WelcomeScreen extends Component {
 
     getMoneyView = () => {
         return(
-            <Form.Group className="costForm">
+            <Form.Group className="costForm animationGroup">
                 <Container className="title" textAlign='center'>
                     How much money do you want to spend?
-                <Divider />
+                <Divider size="small"/>
                 </Container>
 
                 <Container className="checkboxContainer">
@@ -127,7 +125,6 @@ class WelcomeScreen extends Component {
         "money":    this.getMoneyView.bind(this),
     }
 
-
     changeForm = (e, { name, value }) => {
 
         if(name === "next") {
@@ -141,8 +138,6 @@ class WelcomeScreen extends Component {
                 currentView: (this.state.currentView - 1)
             })
         }
-
-        console.log(this.state);
     }
 
     handleSubmit = () => {
@@ -234,41 +229,45 @@ class WelcomeScreen extends Component {
         ]
 
         return (
-            <div className="WelcomeScreen" >
-                <Container className="WelcomeScreenContent">
-                    <Form size={"big"}>
-                        {this.viewMap[this.stateMachine[this.state.currentView]]()}
-                        <Container className="buttonContainer">
-                            <Button disabled={this.state.currentView == 0}
-                                    onClick={this.changeForm} 
-                                    size="large"
-                                    color="blue"
-                                    name="prev"
-                                    content="Prev"
-                                    icon='left arrow'
-                                    labelPosition='left'
-                                />
-                            <Button disabled={this.state.currentView == this.stateMachine.length - 1}
-                                    onClick={this.changeForm} 
-                                    size="large" 
-                                    color="blue"
-                                    name="next" 
-                                    content='Next' 
-                                    icon='right arrow' 
-                                    labelPosition='right' 
-                                />
-                        </Container>
-                        { this.state.currentView == 2 ? 
-                            <Form.Button onClick={this.handleSubmit} size="large" color="blue">Submit</Form.Button>
-                            : null                            
-                        }
-                    </Form>
-                    {this.state.submitted ? <Redirect push to="/profile"></Redirect> : null}
-                </Container>
+            <Transition transitionOnMount animation="fade" duration={500}>
+                <div className="WelcomeScreen" >
+                    <Container className="WelcomeScreenContent">
+                        <Form size={"huge"}>
+                            <Transition.Group animation='fade' duration={500}>
+                                {this.state.currentView === 0 && this.viewMap[this.stateMachine[0]]()}
+                                {this.state.currentView === 1 && this.viewMap[this.stateMachine[1]]()}
+                                {this.state.currentView === 2 && this.viewMap[this.stateMachine[2]]()}
+                            </Transition.Group>
 
+                            <Container className="buttonContainer">
+                                <Button disabled={this.state.currentView == 0}
+                                        onClick={this.changeForm} 
+                                        size="large"
+                                        color="blue"
+                                        name="prev"
+                                        content="Prev"
+                                        icon='left arrow'
+                                        labelPosition='left'
+                                    />
+                                <Button disabled={this.state.currentView == this.stateMachine.length - 1}
+                                        onClick={this.changeForm} 
+                                        size="large" 
+                                        color="blue"
+                                        name="next" 
+                                        content='Next' 
+                                        icon='right arrow' 
+                                        labelPosition='right' 
+                                    />
+                            </Container>
 
-
-            </div >
+                            <Transition visible={ this.state.currentView == 2 } animation='fade' duration={500}>
+                                <Form.Button className="submitButton" onClick={this.handleSubmit} size="large" color="blue">Submit</Form.Button>
+                            </Transition>
+                        </Form>
+                        {this.state.submitted && (<Redirect push to="/profile"></Redirect>)}
+                    </Container>
+                </div>
+            </Transition>
         )
     }
 }

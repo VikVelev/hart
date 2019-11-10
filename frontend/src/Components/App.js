@@ -2,6 +2,7 @@ import React from 'react';
 import './sass/App.scss'
 import Store from '../Store';
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import {Transition} from 'semantic-ui-react';
 import WelcomeScreen from './WelcomeScreen';
 import Profile from './Profile';
 import Map from './Map';
@@ -11,18 +12,10 @@ function App() {
         <BrowserRouter>
             <div className="App">
                 <Switch>
-                    <Route path="/welcome">
-                        <WelcomeScreen />
-                    </Route>
-                    <Route path="/profile">
-                        <Profile store={Store} />
-                    </Route>
-                    <Route path="/map">
-                        <Map></Map>
-                    </Route>
-                    <Route path="/kur">
-                            <Directions />
-                    </Route>
+                        <Route path="/welcome" component={WelcomeScreen}/>
+                         <Route path="/profile" render={() => <Profile store={Store}/>}/>
+                        <Route path="/map" component={Map}/>
+                        <Route path="/kur" component={Directions}/>
                 </Switch>
             </div>
         </BrowserRouter>

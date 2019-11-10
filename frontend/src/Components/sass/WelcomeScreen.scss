@@ -45,6 +45,7 @@
         width:80% !important;
         margin: auto !important;
         margin-bottom: 10px !important;
+        transition: all 0.2s;
         button{
             margin-top: 50px !important ;
             width: 100%;
@@ -58,9 +59,36 @@
     width: 100% !important;
 }
 
-@media(max-width: 767px) {
-    .ui.container.firstHeader {
-        width: 100% !important;
-    }
+.ui.container.checkboxContainer {
+    margin-left: 40px !important;
+    margin-right: 40px !important;
+
 }
+
+.ui.container.buttonContainer{ 
+    position: fixed;
+    left: 50%;
+    bottom: 200px;
+    transform: translateX(-50%);
+}
+
+.animationGroup {
+    position:fixed;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+}
+
+.submitButton {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 380px;
+}
+// @media(max-width: 767px) {
+//     .ui.container.firstHeader {
+//         width: 100% !important;
+//     }
+// }
     
