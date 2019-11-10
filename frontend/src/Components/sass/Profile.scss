@@ -41,3 +41,23 @@
 .scale.Profile.visible.transition {
     background-color: #eee;
 }
+.loadingScreen{
+    .segment{
+        position: fixed !important;
+    }
+    overflow: hidden;
+    position: fixed !important;
+    margin-top: 0 !important;
+    z-index: 101 !important;
+    height: 100% !important;
+    width:100% !important;
+    top:0 !important;
+
+}
+.hidden{
+    display: none;
+    z-index: -1;
+}
+.dimmer{
+    background-color: rgba(54, 54, 54, 0.596);
+}

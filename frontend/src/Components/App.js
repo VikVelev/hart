@@ -12,9 +12,10 @@ function App() {
         <BrowserRouter>
             <div className="App">
                 <Switch>
-                        <Route path="/welcome" component={WelcomeScreen}/>
                          <Route path="/profile" render={() => <Profile store={Store}/>}/>
                         <Route path="/map" render = {()=><RouteVIew store ={Store}/>}/>
+                        <Route path="/*" component={WelcomeScreen}/>
+
                 </Switch>
             </div>
         </BrowserRouter>
