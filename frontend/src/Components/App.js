@@ -4,8 +4,9 @@ import Store from '../Store';
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import WelcomeScreen from './WelcomeScreen';
 import Profile from './Profile';
-import Map from './Map';
-import Directions from './Directions';
+import RouteVIew from './RouteVIew';
+import dotenv from 'dotenv'
+
 function App() {
     return (
         <BrowserRouter>
@@ -18,10 +19,7 @@ function App() {
                         <Profile store={Store} />
                     </Route>
                     <Route path="/map">
-                        <Map></Map>
-                    </Route>
-                    <Route path="/kur">
-                            <Directions />
+                        <RouteVIew></RouteVIew>
                     </Route>
                 </Switch>
             </div>
