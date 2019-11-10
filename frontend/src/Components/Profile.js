@@ -69,11 +69,7 @@ class Profile extends Component {
             if(r[0][0] == 0) return []
 
             let obj = {}
-<<<<<<< HEAD
             let site = [ r[1] ]
-=======
-
->>>>>>> 90c4a7b2303a4c0d78ddc20ee5996bf4d003e453
             obj.key = site[0].place_id;
             obj.picked = false;
             obj.name = site[0].name;
@@ -83,18 +79,13 @@ class Profile extends Component {
                 lat: site[0].geometry.location.lat,
                 lng: site[0].geometry.location.lng,
             }
-<<<<<<< HEAD
             obj.dbName = el.name
 
             return [ obj ]  
 
-=======
-
-            sites.push(obj)
->>>>>>> 90c4a7b2303a4c0d78ddc20ee5996bf4d003e453
         })
 
-        debugger
+        // debugger
         const shuffle = this.takeRandom(this.state.display, sites.length); // take display amount of indexes from site.length indexes
         const sitesOnDisplay = sites.filter((site, index) => shuffle.includes(index)); // filter sites with matching index into onDisplay state 
 
@@ -131,7 +122,8 @@ class Profile extends Component {
         const replacement = this.newRandom(sites); // get replacement from existing state
 
         // no places left to see
-        if (sites.filter(x => x.picked).length == 8 || replacement === undefined) {
+        console.log(sites.filter(x => x.picked).length)
+        if (sites.filter(x => x.picked).length > 8 || replacement === undefined) {
             this.setState({loading:true})
 
             this.props.store.addSite(key, accepted) // updates store      
@@ -139,12 +131,13 @@ class Profile extends Component {
             
             // let randomIndices = this.takeRandom(5, this.nameDictionary.length);
 
-            this.props.store.choosenLocations = choices.map(choice => choice.dbName)
-            let query = ""
-
-            this.props.store.choosenLocations.forEach((name) => {
-                query = query + "item=" + name + "&"
+            this.props.store.choosenLocations = choices.map(choice => _.find(sites, ["key", choice.key]))
+            let query = "" 
+            
+            this.props.store.choosenLocations.forEach((el) => {
+                query = query + "item=" + el.dbName + "&"
             })
+            console.log(query)
 
             let queryString = "http://localhost:8080/?" + query;
 
