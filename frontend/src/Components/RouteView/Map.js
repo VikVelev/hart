@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { GoogleMap, LoadScript, DirectionsService, DirectionsRenderer } from '@react-google-maps/api';
 import '../sass/Map.scss'
+import keys from '../../.keys.js'
 
 export default class Map extends Component {
     constructor(props) {
@@ -21,7 +22,6 @@ export default class Map extends Component {
     }
 
     componentDidMount() {
-        console.log(process.env.API_KEY)
         const responseString = [{
             origin: "Keizersgracht 672, 1017 ET Amsterdam, Netherlands",
             destination: "Oosterpark Amsterdam, Oosterpark, 1091 AC Amsterdam, Netherlands"
@@ -85,7 +85,7 @@ export default class Map extends Component {
         return (
             <div className='Map'>
                 <LoadScript id="script-loader"
-                    googleMapsApiKey={"AIzaSyB6nG0vhkO7C_97rSGJhs2cYm3rKE7bUf8"}>
+                    googleMapsApiKey={keys.googleKey}>
                     <GoogleMap
                         id='google-map'
                         mapContainerStyle={mapStyle}
