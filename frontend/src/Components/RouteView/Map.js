@@ -22,28 +22,14 @@ export default class Map extends Component {
     }
 
     componentDidMount() {
-        const responseString = [{
-            origin: "Keizersgracht 672, 1017 ET Amsterdam, Netherlands",
-            destination: "Oosterpark Amsterdam, Oosterpark, 1091 AC Amsterdam, Netherlands"
-        },
-        {
-            origin: "Oosterpark Amsterdam, Oosterpark, 1091 AC Amsterdam, Netherlands",
-            destination: "Dam 20, 1012 NP Amsterdam, Netherlands"
-        },
-        {
-            origin: "Dam 20, 1012 NP Amsterdam, Netherlands",
-            destination: "Oudezijds Achterburgwal 54, 1012 DP Amsterdam, Netherlands"
-        },
-        {
-            origin: "Oudezijds Achterburgwal 54, 1012 DP Amsterdam, Netherlands",
-            destination: "Prins Hendrikkade 73, 1012 AD Amsterdam, Netherlands"
-        },
-        {
-            origin: "Prins Hendrikkade 73, 1012 AD Amsterdam, Netherlands",
-            destination: "Stadhouderskade 78, 1072 AE Amsterdam, Netherlands"
-        }]
-        const parsedString = responseString.map(value => value.origin)
-        const waypoints = parsedString.slice(1, responseString.length - 1).map(value => ({ location: value }))
+
+        const parsedString = this.props.tripRoute.map(value => value.origin)
+        parsedString.push(this.props.tripRoute[this.props.tripRoute.length-1]);
+
+        const useWaypoints = parsedString.length <= 2? false : true;
+
+        const waypoints = parsedString.slice(1, this.props.tripRoute.length - 1).map(value => ({ location: value }))
+        
         const origin = parsedString[0]
         const destination = parsedString[parsedString.length - 1]
 
@@ -55,7 +41,7 @@ export default class Map extends Component {
         const cachedResponse = JSON.parse(localStorage.getItem("kur"))
         this.setState({ response: cachedResponse });
 
-        //this.setState({useWaypoints:true, waypoints: waypoints, origin: origin, destination: destination });
+        //this.setState({useWaypoints:useWaypoints, waypoints: waypoints, origin: origin, destination: destination });
 
     }
 
