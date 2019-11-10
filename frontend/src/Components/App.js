@@ -6,7 +6,6 @@ import {Transition} from 'semantic-ui-react';
 import WelcomeScreen from './WelcomeScreen';
 import Profile from './Profile';
 import RouteVIew from './RouteVIew';
-import dotenv from 'dotenv'
 
 function App() {
     return (
@@ -15,8 +14,7 @@ function App() {
                 <Switch>
                         <Route path="/welcome" component={WelcomeScreen}/>
                          <Route path="/profile" render={() => <Profile store={Store}/>}/>
-                        <Route path="/map" component={Map}/>
-                        <Route path="/kur" component={Directions}/>
+                        <Route path="/map" component={RouteVIew}/>
                 </Switch>
             </div>
         </BrowserRouter>
