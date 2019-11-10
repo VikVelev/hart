@@ -16,6 +16,9 @@ class Store {
         return this.tripRoute.filter((el) => el.visible)
     }
 
+    @action toggleTripRoute = (index) =>{
+        this.tripRoute[index].visible =  !this.tripRoute[index].visible 
+    }
     @action setTripRoute = (route) =>{
         this.tripRoute = route
     }

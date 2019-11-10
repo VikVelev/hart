@@ -8,9 +8,6 @@ export default class TripPlan extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            visible: false,
-            stops: [],
-            toggled:[],
             tags: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
         }
 
@@ -26,22 +23,21 @@ export default class TripPlan extends Component {
     }
 
     handleTripChange(stop){
-        this.setState({ toggled: this.state.toggled.map((value,index) => stop === index) })
-        this.props.store.tripRoute[stop].visible = !this.props.store.tripRoute[stop].visible;
+        this.props.store.toggleTripRoute(stop);
     }
 
     render() {
         const parsedString = this.props.store.tripRoute.map(value => value.name.split(',')[0])
-
+        
         return (
             <Transition visible={this.state.visible} animation="slide up" duration={500}>
                 <Segment className="TripPlan">
                     <Card.Group>
-                        {parsedString.map((stop, index) =>
+                        {this.props.store.tripRoute.map((el, index) =>
                             <Card className="tripCard" fluid key={index}>
                                 <Card.Header>{this.state.tags[index]}</Card.Header>
-                                <Card.Content>{stop}</Card.Content>
-                                <Button toggle active={this.state.toggled[index]} color="red" toggle onClick={() => this.handleTripChange(index)}  className="close-button"  icon ='close'></Button>
+                                <Card.Content>{el.name.split(",")[0]}</Card.Content>
+                                <Button active={el.visible} color="red" toggle onClick={() => this.handleTripChange(index)}  className="close-button"  icon ='close'></Button>
                             </Card>
                         )}
                     </Card.Group>

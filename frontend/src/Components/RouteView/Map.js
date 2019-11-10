@@ -23,7 +23,7 @@ export default class Map extends Component {
     directionsCallback(response) {
         if (response !== null) {
             if (response.status === 'OK') {
-                console.log("PRAVISH ZAQVKA PEDERAS SPRI");
+                // console.log("PRAVISH ZAQVKA PEDERAS SPRI");
                 this.setState(
                     () => ({
                         response
@@ -37,10 +37,9 @@ export default class Map extends Component {
 
     render() {
         
-        console.log(this.props.store.currentTripRoute)
         let curTrip = this.props.store.currentTripRoute
         const waypoints = curTrip.slice(1, curTrip.length - 1).map( value => ({ location: value.name }))
-        console.log(waypoints);
+
         const mapStyle = {
             height: '100%',
             width: '100%'
@@ -55,9 +54,8 @@ export default class Map extends Component {
                         zoom={11}
                         center={{ lat: 52.3366039, lng: 4.8667033 }}
                         onLoad={map => { console.log('DirectionsRenderer onLoad map: ', map) }}>
-                            {console.log(curTrip)}
-                        {
-                            curTrip.length > 0 &&
+                        {   
+                            this.props.store.tripRoute.some((el) => el.visible) &&
                             <DirectionsService
                                 options={{
                                     travelMode: this.state.travelMode,
