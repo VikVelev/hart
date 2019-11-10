@@ -1,0 +1,36 @@
+plugins {
+//    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.3.50'
+}
+
+group 'hart'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation 'org.optaplanner:optaplanner-core:7.28.0.Final'
+    compile "io.ktor:ktor-server-netty:1.2.4"
+    implementation 'com.beust:klaxon:5.0.1'
+//    compile "ch.qos.logback:logback-classic:1.2.3"
+
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.29'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.29'
+//    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.29'
+    implementation "io.ktor:ktor-client-json-jvm:1.2.4"
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
