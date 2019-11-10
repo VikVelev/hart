@@ -49,8 +49,7 @@ export default class Map extends Component {
         
         let curTrip = this.props.store.currentTripRoute
         const waypoints = curTrip.slice(1, curTrip.length - 1).map( value => ({ location: value.name }))
-        console.log(waypoints)
-
+        
         const mapStyle = {
             height: '100%',
             width: '100%'

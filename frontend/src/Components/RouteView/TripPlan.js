@@ -16,19 +16,18 @@ export default class TripPlan extends Component {
 
     componentDidMount() {
 
-        // console.log(this.props.store)
         setTimeout(() => {
             this.setState({ visible: true });
         }, 800);
     }
 
-    handleTripChange(stop){
+    handleTripChange(stop) {
         this.props.store.toggleTripRoute(stop);
     }
 
     render() {
         const parsedString = this.props.store.tripRoute.map(value => value.name.split(',')[0])
-        
+
         return (
             <Transition visible={this.state.visible} animation="slide up" duration={500}>
                 <Segment className="TripPlan">
@@ -37,7 +36,7 @@ export default class TripPlan extends Component {
                             <Card className="tripCard" fluid key={index}>
                                 <Card.Header>{this.state.tags[index]}</Card.Header>
                                 <Card.Content>{el.name.split(",")[0]}</Card.Content>
-                                <Button active={el.visible} color="red" toggle onClick={() => this.handleTripChange(index)}  className="close-button"  icon ='close'></Button>
+                                <Button active={el.visible} color="red" toggle onClick={() => this.handleTripChange(index)} className="close-button" icon='close'></Button>
                             </Card>
                         )}
                     </Card.Group>

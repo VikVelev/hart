@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Divider, Card, Progress, Transition, List, Segment } from 'semantic-ui-react'
+import { Container, Divider, Card, Progress, Transition, Loader, Segment ,Dimmer } from 'semantic-ui-react'
 import './sass/Profile.scss'
 import SiteCard from './Profile/SiteCard';
 import { observer } from 'mobx-react';
@@ -21,6 +21,7 @@ class Profile extends Component {
             display: 4,             // max sites on page 
             submitted: false,
             visible: false,
+            loading: false
         };
         this.onDecision = this.onDecision.bind(this);
         this.takeRandom = this.takeRandom.bind(this);
@@ -34,12 +35,12 @@ class Profile extends Component {
         matrix.forEach((row) => {
             row.forEach((el) => {
                 if (el.distance !== undefined) {
-                    if(el.distance.value === 0) {
+                    if (el.distance.value === 0) {
                         this.locationDictionary.push(el);
-                        this.nameDictionary.push({ 
-                            key: el.hashKey, 
-                            name: el.origin, 
-                            picked: false 
+                        this.nameDictionary.push({
+                            key: el.hashKey,
+                            name: el.origin,
+                            picked: false
                         });
                     }
                 }
@@ -50,7 +51,7 @@ class Profile extends Component {
         let sites = []
         tempSites.forEach((site) => {
             let obj = {}
-            
+
             obj.key = site[0].place_id;
             obj.picked = false;
             obj.name = site[0].name;
@@ -60,13 +61,13 @@ class Profile extends Component {
                 lat: site[0].geometry.location.lat,
                 lng: site[0].geometry.location.lng,
             }
-            
+
             sites.push(obj)
         })
 
         const shuffle = this.takeRandom(this.state.display, sites.length); // take display amount of indexes from site.length indexes
         const sitesOnDisplay = sites.filter((site, index) => shuffle.includes(index)); // filter sites with matching index into onDisplay state 
-        
+
         sites.forEach((site, index) => {
             if (shuffle.includes(index)) {
                 site.picked = true;
@@ -101,15 +102,15 @@ class Profile extends Component {
 
         // no places left to see
         if (sites.filter(x => x.picked).length == 8 || replacement === undefined) {
-            // 
-            
+            this.setState({loading:true})
+
             this.props.store.addSite(key, accepted) // updates store      
             // let choices = this.props.store.choices
-            
+
             let randomIndices = this.takeRandom(5, this.nameDictionary.length);
 
             this.props.store.choosenLocations = this.nameDictionary.filter((_, index) => randomIndices.includes(index));
-            
+
             let query = ""
 
             this.props.store.choosenLocations.forEach((place) => {
@@ -125,12 +126,11 @@ class Profile extends Component {
                 })
 
                 this.props.store.setTripRoute(datum);
-                console.log(this.props, "SUCCESS");
                 this.setState({ submitted: true, progress: 100 })
             }).catch((err) => {
                 console.log(err);
             });
-            
+
             return;
         }
 
@@ -162,24 +162,24 @@ class Profile extends Component {
 
     }
 
-    componentWillMount(){
+    componentWillMount() {
         setTimeout(() => {
-            this.setState({visible: true})
+            this.setState({ visible: true })
         }, 500);
     }
 
     render() {
 
         return (
-                <Transition visible={this.state.visible} animation="scale" duration={500}>
+            <Transition visible={this.state.visible} animation="scale" duration={500}>
                 <div className="Profile">
                     <Container className="title" textAlign='center'>What would you like?</Container>
                     <Container className="profileContent">
                         <Divider />
                         <Card.Group className="siteCards">
-                                {this.state.sitesOnDisplay.map((site, key) =>
-                                    <SiteCard handleDecision={this.onDecision} siteInfo={site} key={key}></SiteCard>
-                                )}
+                            {this.state.sitesOnDisplay.map((site, key) =>
+                                <SiteCard handleDecision={this.onDecision} siteInfo={site} key={key}></SiteCard>
+                            )}
                         </Card.Group>
                         <Transition transitionOnMount animation="fade" duration={1000}>
                             <Segment className="progressBar">
@@ -188,8 +188,16 @@ class Profile extends Component {
                         </Transition>
                         {this.state.submitted && (<Redirect push to="/map"></Redirect>)}
                     </Container>
+
+
+                    <Segment disabled className={this.state.loading?"loadingScreen":"hidden"}>
+                        <Dimmer active>
+                            <Loader size='massive'>Loading</Loader>
+                        </Dimmer>
+
+                    </Segment>
                 </div>
-                </Transition>
+            </Transition>
         )
     }
 }
