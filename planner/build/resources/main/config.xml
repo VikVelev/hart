@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solver>
+    <environmentMode>PRODUCTION</environmentMode>
+    <constructionHeuristic>
+        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+<!--        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>-->
+    </constructionHeuristic>
+
+<!--    <scoreDirectorFactory>-->
+        <!--<easyScoreCalculatorClass>org.optaplanner.examples.tsp.solver.score.TspEasyScoreCalculator</easyScoreCalculatorClass>-->
+        <!--<incrementalScoreCalculatorClass>org.optaplanner.examples.tsp.solver.score.TspIncrementalScoreCalculator</incrementalScoreCalculatorClass>-->
+<!--        <scoreDrl>rules.drl</scoreDrl>-->
+        <!--<assertionScoreDirectorFactory>-->
+        <!--<easyScoreCalculatorClass>org.optaplanner.examples.tsp.solver.score.TspEasyScoreCalculator</easyScoreCalculatorClass>-->
+        <!--</assertionScoreDirectorFactory>-->
+<!--        <initializingScoreTrend>ONLY_DOWN</initializingScoreTrend>-->
+<!--    </scoreDirectorFactory>-->
+    <localSearch>
+        <unionMoveSelector>
+            <changeMoveSelector>
+                <cacheType>STEP</cacheType>
+                <selectionOrder>SHUFFLED</selectionOrder>
+            </changeMoveSelector>
+<!--            <swapMoveSelector>-->
+<!--            <cacheType>PHASE</cacheType>-->
+<!--            <selectionOrder>SHUFFLED</selectionOrder>-->
+<!--            </swapMoveSelector>-->
+<!--            <tailChainSwapMoveSelector/>-->
+            <subChainChangeMoveSelector>
+                <subChainSelector>
+                    <maximumSubChainSize>50</maximumSubChainSize>
+                </subChainSelector>
+                <selectReversingMoveToo>false</selectReversingMoveToo>
+            </subChainChangeMoveSelector>
+            <subChainSwapMoveSelector>
+                <selectReversingMoveToo>false</selectReversingMoveToo>
+            </subChainSwapMoveSelector>
+            <!-- TODO use nearby selection to scale out -->
+        </unionMoveSelector>
+
+
+
+        <acceptor>
+            <simulatedAnnealingStartingTemperature>3000hard/500medium/9000soft</simulatedAnnealingStartingTemperature>
+            <lateAcceptanceSize>400</lateAcceptanceSize>
+        </acceptor>
+        <forager>
+            <acceptedCountLimit>4</acceptedCountLimit>
+        </forager>
+    </localSearch>
+</solver>
