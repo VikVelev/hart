@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { GoogleMap, LoadScript, DirectionsService, DirectionsRenderer } from '@react-google-maps/api';
 import '../sass/Map.scss'
-import keys from '../../.apikey.js';
+
 export default class Map extends Component {
     constructor(props) {
         super(props)
@@ -14,7 +14,6 @@ export default class Map extends Component {
             origin: '',
             destination: '',
             requesting: false,
-            
         }
 
 
@@ -86,7 +85,7 @@ export default class Map extends Component {
         return (
             <div className='Map'>
                 <LoadScript id="script-loader"
-                    googleMapsApiKey={keys.googleKey}>
+                    googleMapsApiKey={"AIzaSyB6nG0vhkO7C_97rSGJhs2cYm3rKE7bUf8"}>
                     <GoogleMap
                         id='google-map'
                         mapContainerStyle={mapStyle}
