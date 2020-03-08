@@ -8,7 +8,9 @@ authors = ["alex4o <mrabonin@gmail.com>"]
 python = "^3.7"
 numpy = "^1.17"
 flask = "^1.1"
-flasgger = "^0.9.3"
+flask-swagger = "^0.2.14"
+sklearn = "^0.0.0"
+scikit-learn = "^0.21.3"
 
 [tool.poetry.dev-dependencies]
 
